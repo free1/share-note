@@ -1,0 +1,12 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+
+	<%= f.label :email, "电子邮件地址" %>
+	<%= f.text_field :email %>
+
+	<%= f.label :password, "输入密码" %>
+	<%= f.password_field :password %>
+
+	<br>
+	<%= f.submit "登录", class: "btn btn-large btn-primary" %>
+
+<% end %>

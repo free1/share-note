@@ -1,24 +1,30 @@
 <header class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-    	<div class="container">
-      		<%= link_to "NODE", root_path, id: "logo" %>
-			<nav>
-			    <ul class="nav pull-right">
-	            <li id="fat-menu" class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	                语言：简体中文 <b class="caret"></b>
-	              </a>
-	              <ul class="dropdown-menu">
-	                <li><%= link_to "English",    '#' %></li>
-	                <li class="divider"></li>
-	                <li>
-	                  <li><%= link_to "繁体中文",  '#' %></li>
-	                </li>
-	              </ul>
-	            </li>
-	        </ul>
-	      </nav>
-    	</div>
-  	</div>
-
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "NODE", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "首页", root_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "用户", '#' %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                帐号 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "我的主页", current_user %></li>
+                <li><%= link_to "个人资料设置", '#' %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>
