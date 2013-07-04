@@ -1,2 +1,18 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_for(@user) do |f| %>
+
+	<%= f.label :email, "电子邮件地址" %>
+	<%= f.text_field :email %>
+
+	<%= f.label :password, "创建密码" %>
+	<%= f.password_field :password %>
+
+	<%= f.label :password_confirmation, "确认密码" %>
+	<%= f.password_field :password_confirmation %>
+
+	<%= f.label :name, "选择你的用户名" %>
+    <%= f.text_field :name %>
+
+	<br>
+	<%= f.submit "创建我的帐号", class: "btn btn-large btn-primary" %>
+
+<% end %>
