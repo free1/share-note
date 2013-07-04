@@ -1,4 +1,5 @@
 <%= form_for(@user) do |f| %>
+	<%= render 'shared/error_messages' %>
 
 	<%= f.label :email, "电子邮件地址" %>
 	<%= f.text_field :email %>

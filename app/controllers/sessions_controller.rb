@@ -1,3 +1,4 @@
+#encoding: utf-8
 class SessionsController < ApplicationController
   def new
   end
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
   		sign_in user
   		redirect_to root_path
   	else
+      flash.now[:error] = '无效的同户名／密码！'
   		render 'new'
   	end
   end
