@@ -13,7 +13,9 @@
 	<%= f.label :name, "选择你的用户名" %>
     <%= f.text_field :name %>
 
-	<br>
+    <br/>
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    下次自动登录
 	<%= f.submit "创建我的帐号", class: "btn btn-large btn-primary" %>
 
 <% end %>

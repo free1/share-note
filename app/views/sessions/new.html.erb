@@ -1,12 +1,14 @@
-<%= form_for(:session, url: sessions_path) do |f| %>
+<%= form_tag sessions_path do %>
 
-	<%= f.label :email, "电子邮件地址" %>
-	<%= f.text_field :email %>
+	<%= label_tag :email, "电子邮件地址" %>
+	<%= text_field_tag :email, params[:email] %>
 
-	<%= f.label :password, "输入密码" %>
-	<%= f.password_field :password %>
+	<%= label_tag :password, "输入密码" %>
+	<%= password_field_tag :password, params[:password] %>
 
-	<br>
-	<%= f.submit "登录", class: "btn btn-large btn-primary" %>
+	<br/>
+	<%= check_box_tag :remember_me, 1, params[:remember_me] %>
+	记住我
+	<%= submit_tag "登录", class: "btn btn-large btn-primary" %>
 
 <% end %>
