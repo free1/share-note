@@ -1,0 +1,10 @@
+<%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+	<%= f.label :password, "密码" %>
+	<%= f.password_field :password %>
+
+	<%= f.label :password_confirmation, "密码确认" %>
+	<%= f.password_field :password_confirmation %>
+
+	<br/>
+	<%= f.submit "密码重置", class: "btn btn-large btn-primary" %>
+<% end %>
