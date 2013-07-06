@@ -1,0 +1,8 @@
+<%= gravatar_for @user %>
+第<%= @user.id %>号会员  <br/>
+Name: <%= @user.name %> <br/>
+Email: <%= @user.email %> <br/>
+Twitter:    <br/>
+博客:    <br/>
+签名:    <br/>
+Since: <%= @user.created_at.localtime.to_s(:db) %>
