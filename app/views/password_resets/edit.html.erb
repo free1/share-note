@@ -1,5 +1,5 @@
-<%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
-	<%= f.label :password, "密码" %>
+<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+	<%= f.label :password, "创建密码" %>
 	<%= f.password_field :password %>
 
 	<%= f.label :password_confirmation, "密码确认" %>
