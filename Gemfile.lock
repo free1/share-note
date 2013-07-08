@@ -41,6 +41,10 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    chosen-rails (0.10.0)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -144,6 +148,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (= 2.0.4)
   capybara (= 1.1.2)
+  chosen-rails
   coffee-rails (= 3.2.2)
   jquery-rails (= 2.0.2)
   rails (= 3.2.13)

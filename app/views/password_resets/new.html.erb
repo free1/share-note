@@ -1,6 +1,6 @@
 <%= form_tag password_resets_path, method: :post do %>
 	<%= label_tag :email, "电子邮件地址" %>
-	<%= text_field_tag :email, params[:email] %>
+	<%= text_field_tag :email, params[:email], placeholder: '输入你的邮箱' %>
 	
 	<br/>
 	<%= submit_tag "重置密码", class: "btn btn-large btn-primary" %>

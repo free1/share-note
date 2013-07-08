@@ -1,0 +1,41 @@
+<%= form_for(@user) do |f| %>
+	<%= render 'shared/error_messages' %>
+
+	<%= f.label :name, "名字" %>
+	<%= f.text_field :name %> <br/>
+
+	头像                     <br/>
+
+	<%= f.label :email, "邮箱" %>
+	<%= f.text_field :email %>
+
+	<%= f.label :website, "个人网站" %>
+	<%= f.text_field :website %>
+
+	<%= f.label :github, "Github" %>
+	<%= f.text_field :github %>
+
+	<%= f.label :twitter, "Twitter" %>
+	<%= f.text_field :twitter %>
+
+	<%= f.label :qq, "QQ" %>
+	<%= f.text_field :qq %>
+
+	<%= f.label :city, "城市" %>
+	<%= f.text_field :city %>
+
+	<%= f.label :company, "学校or公司" %>
+	<%= f.text_field :company %>
+
+	<%= f.label :position, "职位" %>
+	<%= f.text_field :position %>
+
+	<%= f.label :autograph, "签名" %>
+	<%= f.text_field :autograph %>
+
+	<%= f.label :resume, "个人简介" %>
+	<%= f.text_area :resume %>
+
+	<br/>
+	<%= f.submit "更新资料", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -1,10 +1,10 @@
 <%= form_tag sessions_path do %>
 
 	<%= label_tag :email, "电子邮件地址" %>
-	<%= text_field_tag :email, params[:email] %>
+	<%= text_field_tag :email, params[:email], placeholder: '输入邮箱...' %>
 
 	<%= label_tag :password, "输入密码" %>
-	<%= password_field_tag :password, params[:password] %>
+	<%= password_field_tag :password, params[:password], placeholder: '输入密码...' %>
 
 	<br/>
 	<%= check_box_tag :remember_me, 1, params[:remember_me] %>

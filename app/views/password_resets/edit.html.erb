@@ -1,9 +1,9 @@
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
 	<%= f.label :password, "创建密码" %>
-	<%= f.password_field :password %>
+	<%= f.password_field :password, placeholder: '输入的密码不少于6个字符' %>
 
 	<%= f.label :password_confirmation, "密码确认" %>
-	<%= f.password_field :password_confirmation %>
+	<%= f.password_field :password_confirmation, placeholder: '输入与上面密码相同的字符' %>
 
 	<br/>
 	<%= f.submit "密码重置", class: "btn btn-large btn-primary" %>

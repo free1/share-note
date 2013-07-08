@@ -2,16 +2,16 @@
 	<%= render 'shared/error_messages' %>
 
 	<%= f.label :email, "电子邮件地址" %>
-	<%= f.text_field :email %>
+	<%= f.text_field :email, placeholder: '输入你的邮箱' %>
 
 	<%= f.label :password, "创建密码" %>
-	<%= f.password_field :password %>
+	<%= f.password_field :password, placeholder: '输入的密码不少于6个字符' %>
 
 	<%= f.label :password_confirmation, "确认密码" %>
-	<%= f.password_field :password_confirmation %>
+	<%= f.password_field :password_confirmation, placeholder: '输入与上面密码相同的字符' %>
 
 	<%= f.label :name, "选择你的用户名" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: '起一个个性的名字吧!' %>
 
     <br/>
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
