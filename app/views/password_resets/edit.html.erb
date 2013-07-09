@@ -1,4 +1,6 @@
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+	<%= render 'shared/error_messages' %>
+	
 	<%= f.label :password, "创建密码" %>
 	<%= f.password_field :password, placeholder: '输入的密码不少于6个字符' %>
 
