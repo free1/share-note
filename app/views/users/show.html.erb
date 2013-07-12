@@ -1,8 +1,14 @@
 <%= gravatar_for @user %>
 第<%= @user.id %>号会员  <br/>
 名字: <%= @user.name %> <br/>
-Email: <%= @user.email %> <br/>
-Twitter:    <br/>
-博客:    <br/>
-签名:    <br/>
-Since: <%= @user.created_at.localtime.to_s(:db) %>
+Email: <%= link_to @user.email, "#" %> <br/>
+博客:   <%= link_to @user.website, "#" %> <br/>
+Github: <%= link_to @user.github, "#" %> <br/>
+Twitter:  <%= link_to @user.twitter, "#" %> <br/>
+QQ: <%= @user.qq %> <br/>
+城市: <%= @user.city %> <br/>
+公司: <%= @user.company %> <br/>
+职位: <%= @user.position %> <br/>
+签名:   <%= @user.autograph %> <br/>
+Since: <%= @user.created_at.localtime.to_s(:db) %> <br/>
+个人简介: <%= @user.resume %>

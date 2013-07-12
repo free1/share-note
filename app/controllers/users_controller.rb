@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     # end
     if @user.update_attributes(params[:user])
       flash[:success] = "更新资料成功!"
+      sign_in @user
       redirect_to root_path
     else
       render 'edit'
