@@ -36,6 +36,20 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
+  # 格式验证
+  def github_url
+    return "" if self.github.blank?
+    "https://github.com/#{self.github.split('/').last}"
+  end
+  def twitter_url
+    return "" if self.twitter.blank?
+    "https://twitter.com/#{self.twitter}"
+  end
+  def website_url
+    return "" if self.website.blank?
+    "http://#{self.website}"
+  end
+
   private
     # 创建密码保护
     def create_remember_token(column)
@@ -43,19 +57,4 @@ class User < ActiveRecord::Base
         self[column] = SecureRandom.urlsafe_base64
       end while User.exists?(column => self[column])
     end
-
-    # 格式验证
-    def github_url
-      return "" if self.github.blank?
-      "https://github.com/#{self.github.split('/').last}"
-    end
-    def twitter_url
-      return "" if self.twitter.blank?
-      "https://twitter.com/#{self.twitter}"
-    end
-    def website_url
-      return "" if self.website.blank?
-      "http://#{self.website}"
-    end
-
 end

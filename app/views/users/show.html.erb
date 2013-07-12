@@ -2,13 +2,41 @@
 第<%= @user.id %>号会员  <br/>
 名字: <%= @user.name %> <br/>
 Email: <%= link_to @user.email, "#" %> <br/>
-博客:   <%= link_to @user.website, "#" %> <br/>
-Github: <%= link_to @user.github, "#" %> <br/>
-Twitter:  <%= link_to @user.twitter, "#" %> <br/>
-QQ: <%= @user.qq %> <br/>
-城市: <%= @user.city %> <br/>
-公司: <%= @user.company %> <br/>
-职位: <%= @user.position %> <br/>
-签名:   <%= @user.autograph %> <br/>
+
+<% if !@user.website.blank? %>
+	博客:   <%= link_to @user.website, @user.website_url %> <br/>
+<% end %>
+
+<% if !@user.github.blank? %>
+	Github: <%= link_to @user.github, @user.github_url %> <br/>
+<% end %>
+
+<% if !@user.twitter.blank? %>
+	Twitter:  <%= link_to @user.twitter, @user.twitter_url %> <br/>
+<% end %>
+
+<% if !@user.qq.blank? %>
+	QQ: <%= @user.qq %> <br/>
+<% end %>
+
+<% if !@user.city.blank? %>
+	城市: <%= @user.city %> <br/>
+<% end %>
+
+<% if !@user.company.blank? %>
+	公司: <%= @user.company %> <br/>
+<% end %>
+
+<% if !@user.position.blank? %>
+	职位: <%= @user.position %> <br/>
+<% end %>
+
+<% if !@user.autograph.blank? %>
+	签名: <%= @user.autograph %> <br/>
+<% end %>
+
 Since: <%= @user.created_at.localtime.to_s(:db) %> <br/>
-个人简介: <%= @user.resume %>
+
+<% if !@user.resume.blank? %>
+	个人简介: <%= @user.resume %>
+<% end %>
