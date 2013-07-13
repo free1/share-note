@@ -5,7 +5,7 @@ class UsersController < ApplicationController
                 only: [ :index, :edit, :update, :destroy, :following, :followers ]
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def show
