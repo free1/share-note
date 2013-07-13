@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   private
-
+    # 用户只能修改自己的资料
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
