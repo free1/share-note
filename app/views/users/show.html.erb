@@ -41,16 +41,7 @@ Since: <%= @user.created_at.localtime.to_s(:db) %> <br/>
 	个人简介: <%= @user.resume %>
 <% end %>
 
-<br/>
-<% @user ||= current_user %>
-<a href="<%= following_user_path(@user) %>">
-  <%= @user.followed_users.count %>
-收看
-</a>
-<a href="<%= followers_user_path(@user) %>">
-  <%= @user.followers.count %>
-观众 
-</a>
+<%= render 'shared/stats' %>
 
  <%= render 'follow_form' if signed_in? %>
 
