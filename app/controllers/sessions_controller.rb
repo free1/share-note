@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	user = User.find_by_email(params[:email].downcase)
   	if user && user.authenticate(params[:password])
   		sign_in user
-  		redirect_to root_path
+  		redirect_back_or user
   	else
       flash.now[:error] = '无效的同户名／密码！'
   		render 'new'

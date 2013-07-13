@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
                   :twitter, :qq, :city, :company, :position, :autograph, :resume
   has_secure_password
 
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+              class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+
   before_save { |user| user.email = email.downcase }
   before_create { create_remember_token(:remember_token) }
   before_save { github_url }
@@ -28,6 +34,7 @@ class User < ActiveRecord::Base
 
   validates_numericality_of :qq, only_integer: true, allow_nil: true, message: "必须是整数!"
 
+
   # 发送密码找回邮件
   def send_password_reset
     create_remember_token(:password_reset_token)
@@ -35,6 +42,21 @@ class User < ActiveRecord::Base
     save!
     UserMailer.password_reset(self).deliver
   end
+
+
+  # 用户关注
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
+
 
   # 格式验证
   def github_url
@@ -49,6 +71,7 @@ class User < ActiveRecord::Base
     return "" if self.website.blank?
     "http://#{self.website}"
   end
+
 
   private
     # 创建密码保护

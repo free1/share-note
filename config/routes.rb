@@ -2,8 +2,13 @@ Node::Application.routes.draw do
 
   get "password_resets/new"
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [ :new, :create, :destroy ]
+  resources :relationships, only: [ :create, :destroy ]
   resources :password_resets
 
   match '/signup', to: 'users#new'
