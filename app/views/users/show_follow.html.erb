@@ -1,11 +1,13 @@
-<div class="row">
-  <div class="span8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
-  </div>
+<div>
+	<h3>
+		<%= @title %>
+	</h3>
+	<div class="container">
+		<% if @users.any? %>
+			<ol class="follow-list">
+				<%= render @users %>
+			</ol>
+			<%= will_paginate %>
+		<% end %>
+	</div>
 </div>

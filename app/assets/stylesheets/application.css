@@ -14,3 +14,20 @@
  */
 
 
+/* follow-list-form */
+
+.follow-list {
+	list-style-type: none;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.follow-list-item {
+	float: left;
+	width: 260px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	border-bottom: 1px solid rgb(238,238,238);
+}
