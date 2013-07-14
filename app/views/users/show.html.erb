@@ -43,5 +43,5 @@ Since: <%= @user.created_at.localtime.to_s(:db) %> <br/>
 
 <%= render 'shared/stats' %>
 
- <%= render 'follow_form' if signed_in? %>
+<%= render 'follow_form' if signed_in? %>
 
