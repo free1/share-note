@@ -1,15 +1,23 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :website, :github,
-                  :twitter, :qq, :city, :company, :position, :autograph, :resume
+                  :twitter, :qq, :city, :company, :position, :autograph, :resume,
+                  :authentications_attributes
+  # 安全密码
   has_secure_password
 
+  # 第三方登录
+  has_many :authentications
+  accepts_nested_attributes_for :authentications
+
+  # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
               class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  # 存入数据库之前
   before_save { |user| user.email = email.downcase }
   before_create { create_remember_token(:remember_token) }
   before_save { github_url }
@@ -24,6 +32,7 @@ class User < ActiveRecord::Base
   # validates :password, presence: true, length: { minimum: 6 }, :if => :new_record?
   # validates :password_confirmation, presence: true, :if => :new_record?
 
+  # 用户身份验证
   validates_presence_of :name, :email, :password, :password_confirmation, 
                         message: "不能为空!", if: :new_record? #password reset bug
   validates_length_of :name, :password, in: 1..20, message: "必须为1到20的字符!",
@@ -32,6 +41,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: VALID_EMAIL_REGEX, message: "格式不正确!"
   validates_uniqueness_of :email, case_sensitive: false, message: "已存在!"
 
+  # 用户资料验证
   validates_numericality_of :qq, only_integer: true, allow_nil: true, message: "必须是整数!"
 
 
@@ -70,6 +80,25 @@ class User < ActiveRecord::Base
   def website_url
     return "" if self.website.blank?
     "http://#{self.website}"
+  end
+
+  # 第三方登录
+  class << self
+    # 判断用户是否存在
+    def from_auth(auth)
+      locate_auth(auth) || create_auth(auth)
+    end
+    # 查找用户
+    def locate_auth(auth)
+      Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
+    end
+    # 创建新用户
+    def create_auth(auth)
+      create(:name => auth[:info][:nickname], :email => auth[:info][:email],
+              :authentications_attributes => [
+                Authentication.new(:provider => auth[:provider], :uid => auth[:uid]).attributes
+              ])
+    end
   end
 
 
