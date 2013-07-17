@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   # 安全密码
   has_secure_password
 
-  # 第三方登录
-  has_many :authentications
-  accepts_nested_attributes_for :authentications
+  # # 第三方登录
+  # has_many :authentications, validate: false
+  # accepts_nested_attributes_for :authentications
 
   # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   before_save { twitter_url }
   before_save { website_url }
  
+  # 用户身份验证
   # validates :name, presence: true, length: { maximum: 50 }
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # validates :email, presence: true,
@@ -31,8 +32,6 @@ class User < ActiveRecord::Base
   #                   uniqueness: { case_sensitive: false }
   # validates :password, presence: true, length: { minimum: 6 }, :if => :new_record?
   # validates :password_confirmation, presence: true, :if => :new_record?
-
-  # 用户身份验证
   validates_presence_of :name, :email, :password, :password_confirmation, 
                         message: "不能为空!", if: :new_record? #password reset bug
   validates_length_of :name, :password, in: 1..20, message: "必须为1到20的字符!",
@@ -82,24 +81,24 @@ class User < ActiveRecord::Base
     "http://#{self.website}"
   end
 
-  # 第三方登录
-  class << self
-    # 判断用户是否存在
-    def from_auth(auth)
-      locate_auth(auth) || create_auth(auth)
-    end
-    # 查找用户
-    def locate_auth(auth)
-      Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
-    end
-    # 创建新用户
-    def create_auth(auth)
-      create(:name => auth[:info][:nickname], :email => auth[:info][:email],
-              :authentications_attributes => [
-                Authentication.new(:provider => auth[:provider], :uid => auth[:uid]).attributes
-              ])
-    end
-  end
+  # # 第三方登录
+  # class << self
+  #   # 判断用户是否存在
+  #   def from_auth(auth)
+  #     locate_auth(auth) || create_auth(auth)
+  #   end
+  #   # 查找用户
+  #   def locate_auth(auth)
+  #     Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
+  #   end
+  #   # 创建新用户
+  #   def create_auth(auth)
+  #     create!(:name => auth[:info][:nickname], :email => auth[:info][:email],
+  #             :authentications_attributes => [
+  #               Authentication.new(:provider => auth[:provider], :uid => auth[:uid]).attributes
+  #             ])
+  #   end
+  # end
 
 
   private
