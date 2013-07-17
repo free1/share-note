@@ -2,7 +2,7 @@ Node::Application.routes.draw do
 
   get "password_resets/new"
 
-  # match "/auth/:provider/callback", :to => 'omniauths#create'
+  match "/auth/:provider/callback", :to => 'omniauths#create'
 
   resources :users do
     member do

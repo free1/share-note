@@ -1,14 +1,12 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :website, :github,
-                  :twitter, :qq, :city, :company, :position, :autograph, :resume,
-                  :authentications_attributes
+                  :twitter, :qq, :city, :company, :position, :autograph, :resume
   # 安全密码
   has_secure_password
 
-  # # 第三方登录
-  # has_many :authentications, validate: false
-  # accepts_nested_attributes_for :authentications
+  # 第三方登录
+  has_many :authentications
 
   # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -81,24 +79,31 @@ class User < ActiveRecord::Base
     "http://#{self.website}"
   end
 
-  # # 第三方登录
-  # class << self
-  #   # 判断用户是否存在
-  #   def from_auth(auth)
-  #     locate_auth(auth) || create_auth(auth)
-  #   end
-  #   # 查找用户
-  #   def locate_auth(auth)
-  #     Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
-  #   end
-  #   # 创建新用户
-  #   def create_auth(auth)
-  #     create!(:name => auth[:info][:nickname], :email => auth[:info][:email],
-  #             :authentications_attributes => [
-  #               Authentication.new(:provider => auth[:provider], :uid => auth[:uid]).attributes
-  #             ])
-  #   end
-  # end
+  # 第三方登录
+  class << self
+    # 判断用户是否存在
+    def from_auth(auth)
+      locate_auth(auth) || create_auth(auth)
+    end
+    # 查找用户
+    def locate_auth(auth)
+      Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
+    end
+    # 创建新用户
+    def create_auth(auth)
+      User.new do |user|
+        user.name = auth[:info][:nickname]
+        user.email = auth[:info][:email]
+        user.auth_token = auth[:info][:token]
+        user.authentications.build do |authentication|
+          authentication.provider = auth[:provider]
+          authentication.uid = auth[:uid]
+          authentication.save
+        end
+         user.save!(validate: false)
+      end
+    end
+  end
 
 
   private

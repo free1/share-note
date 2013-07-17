@@ -7,9 +7,9 @@ gem 'bootstrap-sass', '2.0.4'
 gem 'bcrypt-ruby', '3.0.1'
 # 分页
 gem 'will_paginate', '3.0.3'
-# # 第三方验证
-# gem 'omniauth'
-# gem 'omniauth-github'
+# 第三方验证
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
