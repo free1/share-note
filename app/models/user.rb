@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
       User.new do |user|
         user.name = auth[:info][:nickname]
         user.email = auth[:info][:email]
-        user.auth_token = auth[:info][:token]
+        # user.auth_token = auth[:token]
         user.authentications.build do |authentication|
           authentication.provider = auth[:provider]
           authentication.uid = auth[:uid]

@@ -1,11 +1,17 @@
 module SessionsHelper
-	# 用户登录
+	# 普通用户登录
 	def sign_in(user)
 		if params[:remember_me]
 			cookies.permanent[:remember_token] = user.remember_token
 		else
 			cookies[:remember_token] = user.remember_token
 		end
+		self.current_user = user
+	end
+
+	# 外部帐号登录
+	def sign_in_without(user)
+		cookies.permanent[:remember_token] = user.remember_token
 		self.current_user = user
 	end
 
