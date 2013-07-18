@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   # 存入数据库之前
   before_save { |user| user.email = email.downcase }
+  before_save { |user| user.name = name.downcase }
   before_create { create_remember_token(:remember_token) }
   before_save { github_url }
   before_save { twitter_url }
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
                         if: :new_record? #password reset bug
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, with: VALID_EMAIL_REGEX, message: "格式不正确!"
-  validates_uniqueness_of :email, case_sensitive: false, message: "已存在!"
+  validates_uniqueness_of :email, :name, case_sensitive: false, message: "已存在!"
 
   # 用户资料验证
   validates_numericality_of :qq, only_integer: true, allow_nil: true, message: "必须是整数!"
