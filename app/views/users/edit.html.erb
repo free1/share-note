@@ -1,12 +1,12 @@
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages' %>
 
-	头像                     <br/>
-
 	<div class="input-prepend">
 		<%= f.label :name %>
 		<%= f.text_field :name, class: "uneditable-input add-on" %>
 	<div/>
+
+	头像                     <br/>
 
 	<div class="input-prepend">
 		<%= f.label :email, "电子邮件" %>

@@ -1,15 +1,23 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+
 # 页面样式
 gem 'bootstrap-sass', '2.0.4'
+
 # 安全密码
 gem 'bcrypt-ruby', '3.0.1'
+
 # 分页
 gem 'will_paginate', '3.0.3'
+
 # 第三方验证
 gem 'omniauth'
 gem 'omniauth-github'
+
+# 上传组件
+gem 'carrierwave'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
