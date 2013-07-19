@@ -99,6 +99,8 @@ class User < ActiveRecord::Base
       User.new do |user|
         user.name = auth[:info][:nickname]
         user.email = auth[:info][:email]
+        # 生成无用的密码保护
+        user.password_digest = "#{SecureRandom.urlsafe_base64}"
         # user.auth_token = auth[:token]
         user.authentications.build do |authentication|
           authentication.provider = auth[:provider]
