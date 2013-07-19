@@ -1,4 +1,4 @@
 <% @users.each do |user| %>
-	<%= gravatar_for user, size: 52 %>
+	<%= image_tag(user.avatar_url) %>
 	<%= link_to user.name, user %>
 <% end %>

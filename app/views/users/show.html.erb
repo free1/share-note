@@ -1,4 +1,4 @@
-<%= gravatar_for @user %>
+<%= image_tag(@user.avatar_url) if @user.avatar? %>
 第<%= @user.id %>号会员  <br/>
 名字: <%= @user.name %> <br/>
 Email: <%= link_to @user.email, "#" %> <br/>

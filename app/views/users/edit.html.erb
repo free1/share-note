@@ -2,11 +2,14 @@
 	<%= render 'shared/error_messages' %>
 
 	<div class="input-prepend">
-		<%= f.label :name %>
+		<%= f.label :name, "名字" %>
 		<%= f.text_field :name, class: "uneditable-input add-on" %>
 	<div/>
 
-	头像                     <br/>
+	<label>头像</label>
+	<%= image_tag(@user.avatar_url) if @user.avatar? %> <br/>
+	<%= f.file_field :avatar %>
+	<%= f.hidden_field :avatar_cache %>
 
 	<div class="input-prepend">
 		<%= f.label :email, "电子邮件" %>

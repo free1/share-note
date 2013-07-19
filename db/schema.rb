@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718070903) do
+ActiveRecord::Schema.define(:version => 20130719070613) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130718070903) do
     t.string   "position"
     t.string   "autograph"
     t.text     "resume"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,12 +1,16 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :website, :github,
-                  :twitter, :qq, :city, :company, :position, :autograph, :resume
+                  :twitter, :qq, :city, :company, :position, :autograph, :resume,
+                  :avatar, :avatar_cache
   # 安全密码
   has_secure_password
 
   # 第三方登录
   has_many :authentications
+
+  # 上传文件(头像)
+  mount_uploader :avatar, AvatarUploader
 
   # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
