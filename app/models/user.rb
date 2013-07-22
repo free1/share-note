@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   # 安全密码
   has_secure_password
 
+  # 发表文章
+  has_many :posts, dependent: :destroy
+
   # 第三方登录
   has_many :authentications
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719070613) do
+ActiveRecord::Schema.define(:version => 20130722022251) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(:version => 20130719070613) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
