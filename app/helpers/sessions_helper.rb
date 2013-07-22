@@ -1,3 +1,4 @@
+#encoding: utf-8
 module SessionsHelper
 	# 普通用户登录
 	def sign_in(user)
@@ -36,11 +37,11 @@ module SessionsHelper
 	def signed_in?
 		!current_user.nil?
 	end
-	# 已登录用户
+	# 已登录用户(设置权限)
 	def signed_in_user
 		unless signed_in?
 			store_location
-			redirect_to signin_url, notice: "Please sign in."
+			redirect_to signin_url, notice: "请先登录!"
 		end
 	end
 

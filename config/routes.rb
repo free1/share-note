@@ -2,20 +2,27 @@ Node::Application.routes.draw do
 
   get "password_resets/new"
 
+  # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 
+  resources :posts
+
+  # 用户及用户关注
   resources :users do
     member do
       get :following, :followers
     end
   end
-  resources :sessions, only: [ :new, :create, :destroy ]
   resources :relationships, only: [ :create, :destroy ]
-  resources :password_resets
 
+  # 用户登录
+  resources :sessions, only: [ :new, :create, :destroy ]
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  
+  # 找回密码
+  resources :password_resets
 
   root to: 'static_pages#home'
 
