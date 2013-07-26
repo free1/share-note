@@ -18,6 +18,9 @@ gem 'omniauth-github'
 # 上传组件
 gem 'carrierwave'
 
+# Markdown 格式
+gem 'redcarpet'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
