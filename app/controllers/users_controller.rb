@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   	if @user.save
       sign_in @user
       flash[:success] = "恭喜你注册帐号成功！"
+      # 注册邮件提醒
+      SignupMailer.send_signup_mailer(@user).deliver
   		redirect_to root_path
   	else
   		render 'new'	
