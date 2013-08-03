@@ -23,7 +23,7 @@ Node::Application.configure do
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :user_name            => 'xxx',
-      :password             => 'xxxx',
+      :password             => 'xxx',
       :authentication       => 'plain',
       :enable_starttls_auto => true
     }
