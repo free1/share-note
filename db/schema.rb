@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20130722022251) do
     t.string   "remember_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "auth_token"
     t.string   "website"
     t.string   "github"
     t.string   "twitter"
