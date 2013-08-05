@@ -1,0 +1,10 @@
+<ol class="posts">
+	<% @posts.each do |post| %>
+		<li>
+			<span class="title"><%= link_to post.title, "#" %></span>
+			<span class="timestamp">
+				<%= time_ago_in_words(post.created_at) %> ago.
+			</span>
+		</li>
+	<% end %>
+</ol>

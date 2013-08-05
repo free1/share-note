@@ -31,5 +31,25 @@
 	border-bottom: 1px solid rgb(238,238,238);
 }
 
+/* posts */
+
+.posts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  font-size: 18px;
+}
+.posts li {
+	padding: 10px 0;
+	border-top: 1px solid #e8e8e8;
+}
+.title {
+  display: block;
+}
+.timestamp {
+  color:  #eaeaea;
+  font-size: 11px;
+}
+
+
 
 
