@@ -5,7 +5,9 @@ Node::Application.routes.draw do
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end 
 
   # 用户及用户关注
   resources :users do
