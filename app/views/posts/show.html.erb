@@ -1,5 +1,11 @@
 <%= @post.title %>
 <%= markdown(@post.content) %>
+<div>
+	<% @comments.each do |comment| %>
+		<%= comment.commenter %> 
+		<%= comment.body %> <br/>
+	<% end %>
+</div>
 <div>添加回复</div>
 <%= form_for([@post, @comment]) do |f| %>
 
