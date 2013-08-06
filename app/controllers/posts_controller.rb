@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	before_filter :signed_in_user, only: :create
+	# before_filter :signed_in_user, only: [ :create, :destroy ]
+	# before_filter :correct_user, only: :destroy
 
 	def show
 		@post = Post.find(params[:id])
@@ -18,5 +21,16 @@ class PostsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	# def destroy
+	# 	@post.destroy
+	# 	redirect_to root_path
+	# end
+
+	# private 
+	# 	def correct_user
+	# 		@post = current_user.posts.find_by(id: params[:id])
+	# 		redirect_to root_path if @post.nil?
+	# 	end
 
 end
