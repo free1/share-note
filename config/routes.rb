@@ -5,6 +5,7 @@ Node::Application.routes.draw do
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 
+  #发布，评论
   resources :posts do
     resources :comments
   end 

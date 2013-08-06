@@ -1,2 +1,9 @@
 <%= @post.title %>
 <%= markdown(@post.content) %>
+<div>添加回复</div>
+<%= form_for([@post, @comment]) do |f| %>
+
+	<%= f.text_area :body, rows: 3 %> <br/>
+
+	<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+<% end %>
