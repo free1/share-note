@@ -6,10 +6,16 @@
 		<%= comment.body %> <br/>
 	<% end %>
 </div>
-<div>添加回复</div>
-<%= form_for([@post, @comment]) do |f| %>
 
-	<%= f.text_area :body, rows: 3 %> <br/>
+<% if signed_in? %>
+	<div>添加回复</div>
+	<%= form_for([@post, @comment]) do |f| %>
 
-	<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+		<%= f.text_area :body, rows: 3 %> <br/>
+
+		<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+	<% end %>
+	<% else %>
+	需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
+	如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
 <% end %>
