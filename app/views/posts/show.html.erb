@@ -1,7 +1,8 @@
 <div class="post_main">
 	<div class="post_title">
 		<h2><%= @post.title %></h2>
-		<div class="post_totle_font">xx • 于9小时前发布 • 最后由 xx 于9小时前回复 • 132次阅读</div>
+		<div class="post_totle_font"><%= @post.user.name %> • 于 <%= time_ago_in_words(@post.created_at) %> 前发布
+		 • 最后由 xx 于9小时前回复 • 132次阅读</div>
 		<div class="line"></div>
 		<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
 	</div>
@@ -13,7 +14,7 @@
 		<% @comments.each do |comment| %>
 			<div class="comment_content">
 				<%= comment.commenter %>
-				<%= comment.body %> 
+				<%= wrap(markdown(comment.body)) %> 
 			</div>
 			<div class="line"></div>
 		<% end %>
@@ -23,7 +24,7 @@
 		<div>添加回复</div>
 		<%= form_for([@post, @comment]) do |f| %>
 
-			<%= f.text_area :body, rows: 3 %> <br/>
+			<%= f.text_area :body, rows: 6 %> <br/>
 
 			<%= f.submit "回复", class: "btn btn-large btn-primary" %>
 		<% end %>
