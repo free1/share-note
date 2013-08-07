@@ -13,6 +13,11 @@
  */
 
 
+/* 清除浮动 */
+.class {
+	clear: both;
+}
+
 /* follow-list-form */
 
 .follow-list {
@@ -52,6 +57,43 @@
 .line {
 	border-top: 1px solid #e8e8e8;
 }
+
+.post_main {
+	width: 700px;
+	margin-top: 46px;
+}
+.post_main .post_title {
+	padding: 10px;
+	background-color: white;
+	border-radius: 6px;
+}
+.post_main .post_totle_font {
+	margin-bottom: 6px;
+	color: #dddddd;
+}
+.post_main .post_content {
+	margin-top: 10px;
+}
+
+/* comment */
+.comment {
+	margin-top: 18px;
+	width: 700px;
+	background-color: #f5f5f5;
+	border-radius: 6px;
+}
+.comment .comment_number{
+	padding: 8px;
+	color: #999999;
+}
+.comment .comment_content {
+	padding: 8px;
+	background-color: white;
+	height: 20px;
+}
+
+
+
 
 
 

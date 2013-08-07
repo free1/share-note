@@ -1,5 +1,5 @@
 <li class="follow-list-item">
-	<%= gravatar_for user, size: 96 %>
+	<%= image_tag(@user.avatar_url) if @user.avatar? %>
 	<%= link_to user.name, user %>
 </li>
 

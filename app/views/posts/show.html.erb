@@ -1,21 +1,32 @@
-<%= @post.title %>
-<%= markdown(@post.content) %>
-<div>
-	<% @comments.each do |comment| %>
-		<%= comment.commenter %> 
-		<%= comment.body %> <br/>
+<div class="post_main">
+	<div class="post_title">
+		<h2><%= @post.title %></h2>
+		<div class="post_totle_font">xx • 于9小时前发布 • 最后由 xx 于9小时前回复 • 132次阅读</div>
+		<div class="line"></div>
+		<div class="post_content"><%= markdown(@post.content) %></div>
+	</div>
+	<div class="comment">
+		<div class="comment_number">共收到 3 条回复</div>
+		<div class="line"></div>
+		<% @comments.each do |comment| %>
+			<div class="comment_content">
+				<%= comment.commenter %> 
+				<%= comment.body %> <br/>
+			</div>
+			<div class="line"></div>
+		<% end %>
+	</div>
+
+	<% if signed_in? %>
+		<div>添加回复</div>
+		<%= form_for([@post, @comment]) do |f| %>
+
+			<%= f.text_area :body, rows: 3 %> <br/>
+
+			<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+		<% end %>
+		<% else %>
+		需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
+		如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
 	<% end %>
 </div>
-
-<% if signed_in? %>
-	<div>添加回复</div>
-	<%= form_for([@post, @comment]) do |f| %>
-
-		<%= f.text_area :body, rows: 3 %> <br/>
-
-		<%= f.submit "回复", class: "btn btn-large btn-primary" %>
-	<% end %>
-	<% else %>
-	需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
-	如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
-<% end %>
