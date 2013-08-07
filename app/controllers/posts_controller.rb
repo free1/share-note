@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@post.increment(:viewed_count)                        #浏览计数器
 		@comment = @post.comments.build
 		@comments = @post.comments
 	end
