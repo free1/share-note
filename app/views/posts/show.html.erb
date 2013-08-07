@@ -18,19 +18,21 @@
 			</div>
 			<div class="line"></div>
 		<% end %>
-		<div></div>
 	</div>
 
-	<% if signed_in? %>
-		<div>添加回复</div>
-		<%= form_for([@post, @comment]) do |f| %>
+	<div class="reply_main">
+		<% if signed_in? %>
+			<div>添加回复</div>
+			<%= form_for([@post, @comment]) do |f| %>
 
-			<%= f.text_area :body, rows: 6 %> <br/>
+				<%= f.text_area :body, rows: 6 %> <br/>
 
-			<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+				<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+			<% end %>
+			<% else %>
+			需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
+			如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
 		<% end %>
-		<% else %>
-		需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
-		如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
-	<% end %>
+	</div>
 </div>
+
