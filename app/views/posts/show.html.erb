@@ -3,15 +3,17 @@
 		<h2><%= @post.title %></h2>
 		<div class="post_totle_font">xx • 于9小时前发布 • 最后由 xx 于9小时前回复 • 132次阅读</div>
 		<div class="line"></div>
-		<div class="post_content"><%= markdown(@post.content) %></div>
+		<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
 	</div>
 	<div class="comment">
-		<div class="comment_number">共收到 3 条回复</div>
+		<div class="comment_number">
+			共收到 <%= @post.comments.count %> 条回复
+		</div>
 		<div class="line"></div>
 		<% @comments.each do |comment| %>
 			<div class="comment_content">
-				<%= comment.commenter %> 
-				<%= comment.body %> <br/>
+				<%= comment.commenter %>
+				<%= comment.body %> 
 			</div>
 			<div class="line"></div>
 		<% end %>
