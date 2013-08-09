@@ -1,57 +1,63 @@
-<%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+<div class="post_edit_main">
+	<h3>个人资料设置</h3>
+	<div class="line"></div>
+	<div class="post_edit_form">
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
 
-	<div class="input-prepend">
-		<%= f.label :name, "名字" %>
-		<%= f.text_field :name, class: "uneditable-input add-on" %>
-	<div/>
+			<div class="input-prepend">
+				<%= f.label :name, "名字" %>
+				<%= f.text_field :name, class: "uneditable-input add-on" %>
+			<div/>
 
-	<label>头像</label>
-	<%= image_tag(@user.avatar_url) if @user.avatar? %> <br/>
-	<%= f.file_field :avatar %>
-	<%= f.hidden_field :avatar_cache %>
+			<label>头像</label>
+			<%= image_tag(@user.avatar_url) if @user.avatar? %> <br/>
+			<%= f.file_field :avatar %>
+			<%= f.hidden_field :avatar_cache %>
 
-	<div class="input-prepend">
-		<%= f.label :email, "电子邮件" %>
-		<%= f.text_field :email, class: "uneditable-input add-on" %>
-	<div/>
+			<div class="input-prepend">
+				<%= f.label :email, "电子邮件" %>
+				<%= f.text_field :email, class: "uneditable-input add-on" %>
+			<div/>
 
-	<div class="input-prepend">
-		<%= f.label :website, "个人网站" %>
-		<span class="add-on">http://</span>
-		<%= f.text_field :website, placeholder: "http://" %>
+			<div class="input-prepend">
+				<%= f.label :website, "个人网站" %>
+				<span class="add-on">http://</span>
+				<%= f.text_field :website, placeholder: "http://" %>
+			</div>
+
+			<div class="input-prepend">
+				<%= f.label :github, "Github" %>
+				<span class="add-on">https://github.com/</span>
+				<%= f.text_field :github, placeholder: "Username" %>
+			</div>
+
+			<div class="input-prepend">
+				<%= f.label :twitter, "Twitter" %>
+				<span class="add-on">http://twitter.com/</span>
+				<%= f.text_field :twitter, placeholder: "Username" %>
+			<div/>
+
+			<%= f.label :qq, "QQ" %>
+			<%= f.text_field :qq %>
+
+			<%= f.label :city, "城市" %>
+			<%= f.text_field :city %>
+
+			<%= f.label :company, "学校or公司" %>
+			<%= f.text_field :company %>
+
+			<%= f.label :position, "职位" %>
+			<%= f.text_field :position %>
+
+			<%= f.label :autograph, "签名" %>
+			<%= f.text_field :autograph %>
+
+			<%= f.label :resume, "个人简介" %>
+			<%= f.text_area :resume, class: "resume" %>
+
+			<br/>
+			<%= f.submit "更新资料", class: "btn btn-large btn-primary" %>
+		<% end %>
 	</div>
-
-	<div class="input-prepend">
-		<%= f.label :github, "Github" %>
-		<span class="add-on">https://github.com/</span>
-		<%= f.text_field :github, placeholder: "Username" %>
-	</div>
-
-	<div class="input-prepend">
-		<%= f.label :twitter, "Twitter" %>
-		<span class="add-on">http://twitter.com/</span>
-		<%= f.text_field :twitter, placeholder: "Username" %>
-	<div/>
-
-	<%= f.label :qq, "QQ" %>
-	<%= f.text_field :qq %>
-
-	<%= f.label :city, "城市" %>
-	<%= f.text_field :city %>
-
-	<%= f.label :company, "学校or公司" %>
-	<%= f.text_field :company %>
-
-	<%= f.label :position, "职位" %>
-	<%= f.text_field :position %>
-
-	<%= f.label :autograph, "签名" %>
-	<%= f.text_field :autograph %>
-
-	<%= f.label :resume, "个人简介" %>
-	<%= f.text_area :resume, rows: 6 %>
-
-	<br/>
-	<%= f.submit "更新资料", class: "btn btn-large btn-primary" %>
-<% end %>
+</div>

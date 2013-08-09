@@ -82,6 +82,25 @@
 	position: relative;
 	left: 520px;
 }
+/* 编辑post */
+.post_edit_main {
+	width: 700px;
+	margin-top: 46px;
+	background-color: white;
+	padding: 10px;
+	border-radius: 6px;
+}
+.post_edit_main h3 {
+	margin-bottom: 8px;
+}
+.post_edit_main .post_edit_form {
+	/*margin: 0 auto;	
+	padding-left: 180px;*/
+}
+.post_edit_main .post_edit_form .resume {
+	width: 400px;
+	height: 100px;
+}
 
 
 /* comment */
