@@ -25,9 +25,10 @@
 			<div>添加回复</div>
 			<%= form_for([@post, @comment]) do |f| %>
 
-				<%= f.text_area :body, rows: 6 %> <br/>
+				<%= f.text_area :body, class: "textarea" %> </br>
 
 				<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+				<p>请尽量让自己的回复能够对别人有帮助</p>
 			<% end %>
 			<% else %>
 			需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 

@@ -93,7 +93,6 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
-    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -177,7 +176,6 @@ DEPENDENCIES
   jquery-rails (= 2.0.2)
   omniauth
   omniauth-github
-  pg (= 0.15.1)
   rails (= 3.2.13)
   redcarpet
   rspec-rails (= 2.11.0)

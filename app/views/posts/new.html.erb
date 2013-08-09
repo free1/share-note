@@ -1,12 +1,16 @@
-<%= form_for(@post) do |f| %>
-	
-	<%= f.label :title, "主题" %>
-	<%= f.text_field :title %>
+<div class="post_main">
+	<div class="post_title">
+		<%= form_for(@post) do |f| %>
+			
+			<%= f.label :title, "主题" %>
+			<%= f.text_field :title, class: "input-xxlarge" %>
 
-	<%= f.label :content, "内容" %>
-	<%= f.text_area :content %>
+			<%= f.label :content, "内容" %>
+			<%= f.text_area :content, class: "textarea" %>
 
-	<br/>
-	<%= f.submit "分享笔记", class: "btn btn-large btn-primary" %>
+			<br/>
+			<%= f.submit "分享笔记", class: "btn btn-large btn-primary location" %>
 
-<% end %>
+		<% end %>
+	</div>
+</div>

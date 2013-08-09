@@ -11,7 +11,7 @@ gem 'bcrypt-ruby', '3.0.1'
 # 分页
 gem 'will_paginate', '3.0.3'
 
-# 第三方验证
+# 第三方登陆验证
 gem 'omniauth'
 gem 'omniauth-github'
 
@@ -34,10 +34,6 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.2'
-
-group :production do
-  gem 'pg', '0.15.1'
-end
 
 group :test do
   gem 'capybara', '1.1.2'

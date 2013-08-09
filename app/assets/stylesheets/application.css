@@ -18,8 +18,8 @@
 	clear: both;
 }
 
-/* follow-list-form */
 
+/* follow-list-form */
 .follow-list {
 	list-style-type: none;
 	padding: 0px;
@@ -36,8 +36,8 @@
 	border-bottom: 1px solid rgb(238,238,238);
 }
 
-/* posts */
 
+/* posts */
 .posts {
   list-style: none;
   margin: 10px 0 0 0;
@@ -57,7 +57,7 @@
 .line {
 	border-top: 1px solid #e8e8e8;
 }
-
+/* 显示post */
 .post_main {
 	width: 700px;
 	margin-top: 46px;
@@ -74,6 +74,15 @@
 .post_main .post_content {
 	margin-top: 10px;
 }
+/* 编辑post */
+.post_main .post_title .textarea {
+	width: 600px;
+}
+.post_main .post_title .location {
+	position: relative;
+	left: 520px;
+}
+
 
 /* comment */
 .comment {
@@ -91,12 +100,25 @@
 	background-color: white;
 }
 
+
 /* reply */
 .reply_main {
 	margin-top: 19px;
+	background-color: white;
+	border-radius: 6px;
+	padding: 9px;
 }
-
-
+.post_main .reply_main .textarea {
+	width: 670px;
+	height: 100px;
+}
+.post_main .reply_main p {
+	display: inline;
+	float: right;
+	position: relative;
+	top: 10px;
+	color: #b9b9b9;
+}
 
 
 
