@@ -7,57 +7,57 @@
 				<%= render 'shared/error_messages' %>
 
 			<!-- 	<div class="input-prepend"> -->
-					<%= f.label :name, "名字" %>
-					<%= f.text_field :name, readonly: "readonly", class: "uneditable-input add-on" %>
+				<%= f.label :name, "名字", class: "label" %>
+				<%= f.text_field :name, disabled: "disabled", class: "uneditable-input" %> </br>
 			<!-- 	<div/> -->
 
-				<label>头像</label>
-				<%= image_tag(@user.avatar_url) if @user.avatar? %> <br/>
+				<%= f.label :portrait, "头像", class: "label" %>
+				<%= image_tag(@user.avatar_url) if @user.avatar? %>
 				<%= f.file_field :avatar %>
-				<%= f.hidden_field :avatar_cache %>
+				<%= f.hidden_field :avatar_cache %> </br>
 
 			<!-- 	<div class="input-prepend"> -->
-					<%= f.label :email, "电子邮件" %>
-					<%= f.text_field :email, readonly: "readonly", class: "uneditable-input add-on" %>
+				<%= f.label :email, "电子邮件", class: "label" %>
+				<%= f.text_field :email, disabled: "disabled", class: "uneditable-input" %> </br>
 			<!-- 	<div/> -->
 
 			<!-- 	<div class="input-prepend"> -->
-					<%= f.label :website, "个人网站" %>
-					<span class="add-on">http://</span>
-					<%= f.text_field :website, placeholder: "http://" %>
+				<%= f.label :website, "个人网站", class: "label" %>
+				<span class="add-on">http://</span>
+				<%= f.text_field :website, placeholder: "http://" %> </br>
 			<!-- 	</div> -->
 
 			<!-- 	<div class="input-prepend"> -->
-					<%= f.label :github, "Github" %>
-					<span class="add-on">https://github.com/</span>
-					<%= f.text_field :github, placeholder: "Username" %>
+				<%= f.label :github, "Github", class: "label" %>
+				<span class="add-on">https://github.com/</span>
+				<%= f.text_field :github, placeholder: "Username" %> </br>
 			<!-- 	</div> -->
 
 				<!-- <div class="input-prepend"> -->
-					<%= f.label :twitter, "Twitter", class: "input-prepend" %>
-					<span class="add-on">http://twitter.com/</span>
-					<%= f.text_field :twitter, placeholder: "Username" %>
+				<%= f.label :twitter, "Twitter", class: "input-prepend label" %>
+				<span class="add-on">http://twitter.com/</span>
+				<%= f.text_field :twitter, placeholder: "Username" %> </br>
 			<!-- 	<div/> -->
 
-				<%= f.label :qq, "QQ" %>
-				<%= f.text_field :qq %>
+				<%= f.label :qq, "QQ", class: "label" %>
+				<%= f.text_field :qq %> </br>
 
-				<%= f.label :city, "城市" %>
-				<%= f.text_field :city %>
+				<%= f.label :city, "城市", class: "label" %>
+				<%= f.text_field :city %> </br>
 
-				<%= f.label :company, "学校or公司" %>
-				<%= f.text_field :company %>
+				<%= f.label :company, "学校or公司", class: "label" %>
+				<%= f.text_field :company %> </br>
 
-				<%= f.label :position, "职位" %>
-				<%= f.text_field :position %>
+				<%= f.label :position, "职位", class: "label" %>
+				<%= f.text_field :position %> </br>
 
-				<%= f.label :autograph, "签名" %>
-				<%= f.text_field :autograph %>
+				<%= f.label :autograph, "签名", class: "label" %>
+				<%= f.text_field :autograph %> </br>
 
-				<%= f.label :resume, "个人简介" %>
-				<%= f.text_area :resume, class: "resume" %>
+				<%= f.label :resume, "个人简介", class: "label" %>
+				<%= f.text_area :resume, class: "resume" %> </br>
 
-				<br/>
+				
 				<%= f.submit "更新资料", class: "btn btn-large btn-primary" %>
 			<% end %>
 		</div>

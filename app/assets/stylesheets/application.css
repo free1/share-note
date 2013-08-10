@@ -99,8 +99,17 @@
 	margin-bottom: 8px;
 }
 .user_edit_main .user_edit_form {
-	/*margin: 0 auto;	
-	padding-left: 180px;*/
+	padding: 35px;
+}
+.user_edit_main .user_edit_form .label {
+  	display: inline;
+  	padding: 5px;
+}
+.user_edit_main .user_edit_form .add-on {
+	background-color: #EEEEEE;
+	padding: 6px;
+	border-radius: 3px;
+	border: 1px solid #cccccc;
 }
 .user_edit_main .user_edit_form .resume {
 	width: 400px;
