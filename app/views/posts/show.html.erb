@@ -1,11 +1,19 @@
-<div class="post_main">
-	<div class="post_title">
-		<h2><%= @post.title %></h2>
-		<div class="post_totle_font"><%= @post.user.name %> • 于 <%= time_ago_in_words(@post.created_at) %> 前发布
-		 • 最后由 xx 于9小时前回复 • <%= @post.viewed_count %> 次阅读</div>
-		<div class="line"></div>
-		<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
+<div id="page_main">
+	<div class="post_main">
+		<div class="post_title">
+			<h2><%= @post.title %></h2>
+			<div class="post_totle_font"><%= @post.user.name %> • 于 <%= time_ago_in_words(@post.created_at) %> 前发布
+			 • 最后由 xx 于9小时前回复 • <%= @post.viewed_count %> 次阅读</div>
+			<div class="line"></div>
+			<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
+		</div>
 	</div>
+
+	<%= render 'shared/tips' %>
+
+	<!-- 清除浮动 -->
+	<div class="class"></div>
+
 	<div class="comment">
 		<div class="comment_number">
 			共收到 <%= @post.comments.count %> 条回复
@@ -20,20 +28,22 @@
 		<% end %>
 	</div>
 
-	<div class="reply_main">
-		<% if signed_in? %>
-			<div>添加回复</div>
-			<%= form_for([@post, @comment]) do |f| %>
+	<div class="reply_post">
+		<div class="reply_main">
+			<% if signed_in? %>
+				<div>添加回复</div>
+				<%= form_for([@post, @comment]) do |f| %>
 
-				<%= f.text_area :body, class: "textarea" %> </br>
+					<%= f.text_area :body, class: "textarea" %> </br>
 
-				<%= f.submit "回复", class: "btn btn-large btn-primary" %>
-				<p>请尽量让自己的回复能够对别人有帮助</p>
+					<%= f.submit "回复", class: "btn btn-large btn-primary" %>
+					<p>请尽量让自己的回复能够对别人有帮助</p>
+				<% end %>
+				<% else %>
+				需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
+				如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
 			<% end %>
-			<% else %>
-			需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
-			如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
-		<% end %>
+		</div>
 	</div>
 </div>
 
