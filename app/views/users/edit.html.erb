@@ -8,7 +8,7 @@
 
 			<!-- 	<div class="input-prepend"> -->
 					<%= f.label :name, "名字" %>
-					<%= f.text_field :name, class: "uneditable-input add-on" %>
+					<%= f.text_field :name, readonly: "readonly", class: "uneditable-input add-on" %>
 			<!-- 	<div/> -->
 
 				<label>头像</label>
@@ -18,26 +18,26 @@
 
 			<!-- 	<div class="input-prepend"> -->
 					<%= f.label :email, "电子邮件" %>
-					<%= f.text_field :email, class: "uneditable-input add-on" %>
-				<div/>
+					<%= f.text_field :email, readonly: "readonly", class: "uneditable-input add-on" %>
+			<!-- 	<div/> -->
 
 			<!-- 	<div class="input-prepend"> -->
 					<%= f.label :website, "个人网站" %>
 					<span class="add-on">http://</span>
 					<%= f.text_field :website, placeholder: "http://" %>
-				</div>
+			<!-- 	</div> -->
 
 			<!-- 	<div class="input-prepend"> -->
 					<%= f.label :github, "Github" %>
 					<span class="add-on">https://github.com/</span>
 					<%= f.text_field :github, placeholder: "Username" %>
-				</div>
+			<!-- 	</div> -->
 
 				<!-- <div class="input-prepend"> -->
 					<%= f.label :twitter, "Twitter", class: "input-prepend" %>
 					<span class="add-on">http://twitter.com/</span>
 					<%= f.text_field :twitter, placeholder: "Username" %>
-				<div/>
+			<!-- 	<div/> -->
 
 				<%= f.label :qq, "QQ" %>
 				<%= f.text_field :qq %>
