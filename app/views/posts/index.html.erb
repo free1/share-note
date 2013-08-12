@@ -1,11 +1,36 @@
-<ol class="posts">
-	<% @posts.each do |post| %>
-		<li>
-			<span class="title"><%= link_to post.title, post %></span>
-			<span class="timestamp">
-				<%= time_ago_in_words(post.created_at) %> ago.
-			</span>
-		</li>
-	<% end %>
-	<div class="line"></div>
-</ol>
+<% if @posts.empty? %>
+	<p>没有找到您要寻找的内容</p>
+<% else %>
+	<p>为您找到相关结果 <%= @posts.count %> 个</p>
+	<ol class="posts">
+		<% @posts.each do |post| %>
+			<li>
+				<span class="title"><%= link_to post.title, post %></span>
+				<span class="timestamp">
+					<%= time_ago_in_words(post.created_at) %> ago.
+				</span>
+			</li>
+		<% end %>
+		<div class="line"></div>
+	</ol>
+<% end %>
+
+<!-- 搜索到的结果高亮显示 -->
+<!-- <% content_for :template_js do %>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    param = getParameterByName("search");
+    if (param != "") {
+      str = "<span> </span>".replace(" ", param);
+      $(".episode_intro").each(function() {
+           newtext = $(this).html().replace(param, str);
+           $(this).html(newtext).find("span").css("color", "red");
+      });
+    }
+  </script>
+<% end %> -->

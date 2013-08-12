@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PostsController < ApplicationController
 	before_filter :signed_in_user, only: :create
 	# before_filter :signed_in_user, only: [ :create, :destroy ]
@@ -5,10 +6,15 @@ class PostsController < ApplicationController
 
 	# 全文搜索
 	def index
-		@search = Post.search do 
-			fulltext params[:search]
+		if params[:search].blank?
+			flash[:error] = "请输入您要查找的内容！"
+			redirect_to root_path
+		else
+			@search = Post.search do 
+				fulltext params[:search]
+			end
+			@posts = @search.results
 		end
-		@posts = @search.results
 	end
 
 	def show
