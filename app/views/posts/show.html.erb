@@ -2,8 +2,12 @@
 	<div class="post_main">
 		<div class="post_title">
 			<h2><%= @post.title %></h2>
-			<div class="post_totle_font"><%= @post.user.name %> • 于 <%= time_ago_in_words(@post.created_at) %> 前发布
-			 • 最后由  于9小时前回复 • <%= @post.viewed_count %> 次阅读</div>
+			<div class="post_totle_font"><%= @post.user.name %> 
+				• 于 <%= time_ago_in_words(@post.created_at) %> 前发布 
+				<% if @comments.any? %>
+			 		• 最后由 <%= @comments.last.commenter %>  
+			 	<% end %>
+			 	于9小时前回复 • <%= @post.viewed_count %> 次阅读</div>
 			<div class="line"></div>
 			<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
 		</div>
@@ -16,7 +20,7 @@
 
 	<div class="comment">
 		<div class="comment_number">
-			共收到 <%= @post.comments.count %> 条回复
+			共收到 <%= @comments.count %> 条回复
 		</div>
 		<div class="line"></div>
 		<% @comments.each do |comment| %>
