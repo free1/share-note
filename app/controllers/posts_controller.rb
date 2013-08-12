@@ -3,6 +3,14 @@ class PostsController < ApplicationController
 	# before_filter :signed_in_user, only: [ :create, :destroy ]
 	# before_filter :correct_user, only: :destroy
 
+	# 全文搜索
+	def index
+		@search = Post.search do 
+			fulltext params[:search]
+		end
+		@posts = @search.results
+	end
+
 	def show
 		@post = Post.find(params[:id])
 		@post.increment(:viewed_count)                        #浏览计数器

@@ -10,6 +10,15 @@ class Post < ActiveRecord::Base
 
 	default_scope order: 'posts.created_at DESC'
 
+	# 全文搜索
+	searchable do 
+		text :title, :content
+		text :comments do
+			comments.map { |comment| comment.body  }
+		end
+		
+	end
+
 	#浏览计算器
 	def increment(attribute, by = 1)
 		self[attribute] ||= 0

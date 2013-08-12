@@ -11,6 +11,10 @@ gem 'bcrypt-ruby', '3.0.1'
 # 分页
 gem 'will_paginate', '3.0.3'
 
+# 搜索
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+
 # 第三方登陆验证
 gem 'omniauth'
 gem 'omniauth-github'

@@ -2,6 +2,12 @@
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "NOTE", root_path, id: "logo" %>
+      <div>
+        <%= form_tag posts_path, method: :get do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "搜索", name: nil %>
+        <% end %>
+      </div>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "首页", root_path %></li>
