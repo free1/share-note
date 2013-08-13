@@ -1,3 +1,4 @@
+<!-- 搜索出来的内容 -->
 <% if @posts.empty? %>
 	<p>没有找到您要寻找的内容</p>
 <% else %>
@@ -6,6 +7,8 @@
 		<% @posts.each do |post| %>
 			<li>
 				<span class="title"><%= link_to post.title, post %></span>
+        <!-- 内容过长显示前80个字符 -->
+        <span><%= truncate(strip_tags(post.content), length: 80) %></span>
 				<span class="timestamp">
 					<%= time_ago_in_words(post.created_at) %> ago.
 				</span>

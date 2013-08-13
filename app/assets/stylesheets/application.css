@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+.aaa {
+	display: inline;
+}
 
 
 /* 关注列表表单 */
