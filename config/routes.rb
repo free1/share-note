@@ -27,6 +27,10 @@ Node::Application.routes.draw do
   # 找回密码
   resources :password_resets
 
+  # 站内通知
+  resources :notifications 
+
+  # 首页
   root to: 'static_pages#home'
 
   # The priority is based upon order of creation:

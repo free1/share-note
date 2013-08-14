@@ -1,5 +1,5 @@
 <header class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
+  <!-- <div class="navbar-inner"> -->
     <div class="container">
       <!-- logo -->
       <%= link_to "NOTE", root_path, id: "logo" %>
@@ -16,6 +16,9 @@
           <li><%= link_to "首页", root_path %></li>
           <li><%= link_to "用户", users_path %></li>
           <% if signed_in? %>
+            <!-- 站内通知 -->
+            <li><%= link_to "#{@unread_count}", notifications_path, :class => "notification-indicator #{'unread' if @unread_count != 0} " %></li>
+            <!-- 用户资料设置 -->
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= @current_user.name %> <b class="caret"></b>

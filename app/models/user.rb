@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   # 上传文件(头像)
   mount_uploader :avatar, AvatarUploader
 
+  # 站内通知提醒
+  has_many :notifications
+
   # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed

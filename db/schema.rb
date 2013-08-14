@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807141213) do
+ActiveRecord::Schema.define(:version => 20130813060326) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -27,9 +27,18 @@ ActiveRecord::Schema.define(:version => 20130807141213) do
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "notifications", :force => true do |t|
+    t.boolean  "unread"
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
