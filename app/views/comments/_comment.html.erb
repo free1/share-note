@@ -1,2 +1,3 @@
-<%= comment.commenter %>
+<%= link_to comment.commenter, "#" %>
+<%= link_to comment.post.title, post_path(comment.post.id) %>
 <%= comment.body %>

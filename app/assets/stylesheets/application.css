@@ -14,7 +14,12 @@
 
 
 /* 站内通知 */
-
+.notification-indicator {
+     
+}
+.unread {
+	background-color: red;
+}
 
 
 /* 关注列表表单 */
