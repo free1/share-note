@@ -1,5 +1,6 @@
 <div>
-	<% for notification in @notifications %>
+	新的通知提醒（<%= @unread_count %> 条）
+	<% @notifications.each do |notification| %>
         <%= render notification %>
     <% end %>
 </div>
