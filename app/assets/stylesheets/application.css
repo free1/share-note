@@ -12,6 +12,13 @@
  *= require_tree .
  */
 
+.header_left {
+	float: left;
+}
+.seach {
+	float: right;
+	
+}
 
 /* 站内通知 */
 .notification-indicator {
@@ -31,7 +38,6 @@
 }
 
 .follow-list-item {
-	float: left;
 	width: 260px;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
