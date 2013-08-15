@@ -1,11 +1,15 @@
 <ol class="posts">
 	<% @posts.each do |post| %>
 		<li>
-			<span class="title"><%= link_to post.title, post %></span>
-			<span class="timestamp">
-				<%= time_ago_in_words(post.created_at) %> ago.
-			</span>
+			<div class="one_post">
+				<p class="title"><%= link_to post.title, post %></p>
+				<div class="line"></div>
+				<p class="content"><%= truncate(strip_tags(post.content), length: 100) %></p>
+				<p class="timestamp">
+					<%= time_ago_in_words(post.created_at) %> ago.
+				</p>
+			</div>
 		</li>
 	<% end %>
-	<div class="line"></div>
+	<div class="class"></div>
 </ol>

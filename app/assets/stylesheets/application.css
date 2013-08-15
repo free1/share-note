@@ -50,20 +50,34 @@
 
 /* posts主体 */
 .posts {
-  list-style: none;
-  margin: 10px 0 0 0;
-  font-size: 18px;
+	margin-top: 25px;
+    list-style: none;
 }
-.posts li {
-	padding: 10px 0;
-	border-top: 1px solid #e8e8e8;
+.posts .one_post {
+	background-color: white;
+	width: 180px;
+	height: 230px;
+	margin-right: 27px;
+	margin-top: 30px;
+	padding: 10px;
+	border-radius: 6px;
+	float: left;
 }
-.title {
-  display: block;
+.posts .one_post a {
+	
+}
+.posts .one_post .title {
+	font-size: 20px;
+    font-weight: bold;   
+}
+.posts .one_post .content {
+	font-size: 15px;
 }
 .timestamp {
   color:  #eaeaea;
   font-size: 11px;
+ /* position: absolute;
+  top: 300px;*/
 }
 .line {
 	border-top: 1px solid #e8e8e8;
