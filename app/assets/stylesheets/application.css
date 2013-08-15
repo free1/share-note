@@ -12,13 +12,6 @@
  *= require_tree .
  */
 
-.header_left {
-	float: left;
-}
-.seach {
-	float: right;
-	
-}
 
 /* 站内通知 */
 .notification-indicator {

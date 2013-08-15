@@ -18,6 +18,10 @@ body {
 
 /* header */
 
+.header_left {
+  float: left;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -33,6 +37,11 @@ body {
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+
+#seach {
+  float: right;
+  padding-left: 200px;
 }
 
 
