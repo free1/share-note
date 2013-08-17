@@ -25,7 +25,7 @@
 		<div class="line"></div>
 		<% @comments.each do |comment| %>
 			<div class="comment_content">
-				<%= comment.commenter %>
+				<div class="comment_commenter"><%= comment.commenter %></div>
 				<%= wrap(markdown(comment.body)) %> 
 			</div>
 			<div class="line"></div>

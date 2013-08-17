@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   	# 站内通知
   	def count_unread_notification
   		if current_user
+        # 通知数量
   			@unread_count = current_user.notifications.where(unread: true).count
   		else
   			@unread_count = 0
