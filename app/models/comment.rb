@@ -15,10 +15,10 @@ class Comment < ActiveRecord::Base
     # 找到需要通知的用户
     def find_user
       # 匹配找到@ 到的人
-      at_users = self.body.scan(/@([\p{Han}+\w]{2,20}\s)/u).flatten
+      at_users = self.body.scan(/@([a-zA-Z0-9_\-\p{han}]+)/u).flatten
       # 存放需要通知用户的数组
       notification_users_id = []
-      if at_users.any?
+      unless at_users.blank?
           at_users.each do |at_user|
             exist_user =  User.find_by_name(at_user)
             # 用户是否存在
