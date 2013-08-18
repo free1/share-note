@@ -1,5 +1,5 @@
 <div class="notification_comment">
 	<%= link_to comment.commenter, "#" %>
-	<%= link_to comment.post.title, post_path(comment.post.id) %>
+	<p><%= link_to comment.post.title, post_path(comment.post.id) %></p>
 	<%= comment.body %>
 </div>

@@ -14,16 +14,10 @@
  */
 
 
-/* 站内通知 */
-.notification-indicator {
-     
-}
-.unread {
-	background-color: red;
-}
-
-
 /* 关注列表表单 */
+.follow_main {
+	margin-top: 50px;
+}
 .follow-list {
 	list-style-type: none;
 	padding: 0px;
@@ -32,11 +26,13 @@
 }
 
 .follow-list-item {
-	width: 260px;
+	width: 280px;
 	padding-bottom: 20px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	margin-right: 20px;
-	border-bottom: 1px solid rgb(238,238,238);
+	float: left;
+	border-bottom: 1px solid #EEEEEE;
 }
 
 /* 清除浮动 */
@@ -109,6 +105,10 @@
 	left: 520px;
 }
 
+/* 显示全部用户 */
+.index_users {
+    margin-top: 50px;
+}
 
 /* 编辑user资料 */
 .user_edit_main {
@@ -258,6 +258,17 @@ strong {
     padding: 20px;
 }
 
+.notification_indicator{
+	border-radius: 3px;
+	
+}
+
+.unread {
+	background-color: #e55753;
+}
+.hightlight {
+	color: red;
+}
 
 
 
