@@ -20,7 +20,7 @@
 $(document).ready(function(){
 	$(".one_post").hover(
 		function(){
-			$(this).css("background-color", "#f5f5f5" )
+			$(this).css("background-color", "#fcfce2" )
 		},
 		function(){
 			$(this).css("background-color", "white" )
