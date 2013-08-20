@@ -17,7 +17,7 @@ capybara-*.html
 /tmp/*
 /db/*.sqlite3
 /public/system/*
-/solr/data/development/index/*
+/solr/data/development/index/
 /coverage/
 /spec/tmp/*
 **.orig
