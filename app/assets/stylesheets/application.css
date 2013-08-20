@@ -59,6 +59,7 @@
 	padding: 10px;
 	border-radius: 6px;
 	float: left;
+	box-shadow: 0 2px 5px #aaaaaa;
 }
 .posts .one_post a {
 	
@@ -69,6 +70,8 @@
 }
 .posts .one_post .content {
 	font-size: 15px;
+	/*对多余的内容裁减*/
+	overflow-x: hidden;
 }
 .timestamp {
     color:  #eaeaea;

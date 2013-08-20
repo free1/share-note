@@ -17,3 +17,13 @@
 //= require_tree .
 
 
+$(document).ready(function(){
+	$(".one_post").hover(
+		function(){
+			$(this).css("background-color", "#f5f5f5" )
+		},
+		function(){
+			$(this).css("background-color", "white" )
+		}
+	);
+});
