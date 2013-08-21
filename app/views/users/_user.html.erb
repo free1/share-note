@@ -1,4 +1,4 @@
 <li class="follow-list-item">
-	<%= image_tag(@user.avatar_url) if @user.avatar? %>
+	<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
 	<%= link_to user.name, user %>
 </li>

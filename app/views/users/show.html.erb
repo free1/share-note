@@ -1,6 +1,5 @@
 <div class="show_user">
 	<div class="user_info_main">
-		<%= image_tag(@user.avatar_url) if @user.avatar? %>
 		第<%= @user.id %>号会员  <br/>
 		名字: <%= @user.name %> <br/>
 		Email: <%= link_to @user.email, "#" %> <br/>
@@ -47,7 +46,9 @@
 			<%= render 'shared/stats' %>
 		</section>
 	</div>
+
 	<div class="follow_button">
+		<%= image_tag(@user.avatar_url(:thumb)) if @user.avatar? %>
 	    <%= render 'follow_form' if signed_in? %>
 	</div>
 

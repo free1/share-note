@@ -3,7 +3,7 @@
 	<ol class="follow-list">
 		<% @users.each do |user| %>
 			<li class="follow-list-item">
-				<%= image_tag(user.avatar_url) %>
+				<%= image_tag(user.avatar_url(:small)) %>
 				<%= link_to user.name, user %>
 			</li>
 		<% end %>

@@ -24,6 +24,7 @@ gem 'omniauth-github'
 
 # 上传组件
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Markdown 格式
 gem 'redcarpet'
