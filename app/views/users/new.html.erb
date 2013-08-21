@@ -1,22 +1,27 @@
-<%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+<div class="signup">
+	<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-	<%= f.label :email, "电子邮件地址" %>
-	<%= f.text_field :email, placeholder: '输入你的邮箱' %>
+		<%= f.label :email, "电子邮件地址" %>
+		<%= f.text_field :email %>
+	    <span>还没有填写邮箱</span>
 
+		<%= f.label :password, "创建密码" %>
+		<%= f.password_field :password %>
+		<span>输入的6-20个字符作为登陆密码</span>
 
-	<%= f.label :password, "创建密码" %>
-	<%= f.password_field :password, placeholder: '输入的密码不少于6个字符' %>
+		<%= f.label :password_confirmation, "确认密码" %>
+		<%= f.password_field :password_confirmation %>
+		<span>输入与上面密码相同的字符</span>
 
-	<%= f.label :password_confirmation, "确认密码" %>
-	<%= f.password_field :password_confirmation, placeholder: '输入与上面密码相同的字符' %>
+		<%= f.label :name, "选择你的用户名" %>
+	    <%= f.text_field :name %>
+	    <span>起一个个性的名字吧!</span>
 
-	<%= f.label :name, "选择你的用户名" %>
-    <%= f.text_field :name, placeholder: '起一个个性的名字吧!' %>
+	    <br/>
+	    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+	    下次自动登录
+		<%= f.submit "创建我的帐号", class: "btn btn-large btn-primary" %>
 
-    <br/>
-    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    下次自动登录
-	<%= f.submit "创建我的帐号", class: "btn btn-large btn-primary" %>
-
-<% end %>
+	<% end %>
+</div>

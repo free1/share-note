@@ -14,6 +14,31 @@
  */
 
 
+/* 注册页面 */
+.signup {
+	background-color: white;
+	border-radius: 6px;
+	padding: 20px;
+	padding-left: 300px;
+}
+.signup span {
+	color: #bbbbbb;
+}
+/* 登陆页面 */
+.signin {
+	background-color: white;
+	border-radius: 6px;
+	padding: 20px;
+}
+.signin .signin_main {
+	padding-left: 80px;
+    float: left;
+}
+.signin .signin_github {
+	padding-right: 80px;
+    float: right;
+}
+
 /* 关注列表表单 */
 .follow_main {
 	margin-top: 50px;

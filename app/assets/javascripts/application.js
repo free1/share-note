@@ -18,6 +18,7 @@
 
 
 $(document).ready(function(){
+	// 主页文章显示
 	$(".one_post").hover(
 		function(){
 			$(this).css("background-color", "#fcfce2" )
@@ -26,4 +27,7 @@ $(document).ready(function(){
 			$(this).css("background-color", "white" )
 		}
 	);
+
+    // 注册页面
+
 });
