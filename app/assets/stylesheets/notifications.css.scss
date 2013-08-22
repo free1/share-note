@@ -1,3 +1,29 @@
 // Place all the styles related to the notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 评论通知提醒 */
+.notification_main {
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.notification_comment {
+    margin-top: 10px;
+    border: 1px solid #a6a6a6;
+    padding: 20px;
+}
+
+.notification_indicator{
+	border-radius: 3px;
+}
+
+.unread {
+	background-color: #e55753;
+}
+.hightlight {
+	color: red;
+}
+

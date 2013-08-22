@@ -1,3 +1,44 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 评论 */
+
+.comment {
+	margin-top: 18px;
+	width: 700px;
+	background-color: #f5f5f5;
+	border-radius: 6px;
+}
+.comment .comment_number{
+	padding: 8px;
+	color: #999999;
+}
+.comment .comment_content {
+	padding: 8px;
+	background-color: white;
+}
+
+
+/* 回复 */
+
+.reply_post {
+	width: 700px;
+}
+.reply_post .reply_main {
+	margin-top: 19px;
+	background-color: white;
+	border-radius: 6px;
+	padding: 9px;
+}
+.reply_post .reply_main .textarea {
+	width: 670px;
+	height: 100px;
+}
+.reply_post .reply_main p {
+	display: inline;
+	float: right;
+	position: relative;
+	top: 10px;
+	color: #b9b9b9;
+}

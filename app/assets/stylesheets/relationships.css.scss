@@ -1,3 +1,26 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 关注列表表单 */
+
+.follow_main {
+	margin-top: 50px;
+}
+
+.follow-list {
+	list-style-type: none;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.follow-list-item {
+	width: 280px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	float: left;
+	border-bottom: 1px solid #EEEEEE;
+}

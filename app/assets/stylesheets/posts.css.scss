@@ -1,3 +1,70 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* posts主体 */
+
+.posts {
+	margin-top: 25px;
+    list-style: none;
+}
+.posts .one_post {
+	background-color: white;
+	width: 180px;
+	height: 230px;
+	margin-right: 27px;
+	margin-top: 30px;
+	padding: 10px;
+	border-radius: 6px;
+	float: left;
+	box-shadow: 0 2px 5px #aaaaaa;
+}
+.posts .one_post a {
+	
+}
+.posts .one_post .title {
+	font-size: 20px;
+    font-weight: bold;   
+}
+.posts .one_post .content {
+	font-size: 15px;
+	/*对多余的内容裁减*/
+	overflow-x: hidden;
+}
+.timestamp {
+    color:  #eaeaea;
+    font-size: 11px;
+ /* position: absolute;
+  top: 300px;*/
+}
+
+
+/* 显示post */
+
+.post_main {
+	width: 700px;
+	float: left;
+}
+.post_main .post_title {
+	padding: 10px;
+	background-color: white;
+	border-radius: 6px;
+}
+.post_main .post_totle_font {
+	margin-bottom: 6px;
+	color: #dddddd;
+}
+.post_main .post_content {
+	margin-top: 10px;
+}
+
+
+/* 编辑post */
+
+.post_main .post_title .textarea {
+	width: 600px;
+}
+.post_main .post_title .location {
+	position: relative;
+	left: 520px;
+}
