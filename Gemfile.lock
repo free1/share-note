@@ -187,7 +187,7 @@ DEPENDENCIES
   capybara (= 1.1.2)
   carrierwave
   coffee-rails (= 3.2.2)
-  jquery-atwho-rails (= 0.1.6)
+  jquery-atwho-rails
   jquery-rails (= 2.0.2)
   mini_magick
   omniauth

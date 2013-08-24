@@ -27,7 +27,26 @@ $(document).ready(function(){
 			$(this).css("background-color", "white" )
 		}
 	);
+	
 
     // 注册页面
 
+    
+    // @评论者
+	// var commenter = [];
+	// var commenter_exist= [];
+	// $('.comment-header-author').each(function() {
+	// 	if($.inArray($(this).text(), commenter_exist) < 0){
+	// 		  commenter.push($(this).text());
+	// 		  commenter_exist.push($(this).text());
+	// 	}
+	// });
+
+	data = ['tom','john'];
+	$(".textarea").atwho({at:"@", 'data':data});
+
 });
+
+
+
+

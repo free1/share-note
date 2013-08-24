@@ -16,7 +16,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 
 # 用户使用“@replies” 的格式进行回复
-gem "jquery-atwho-rails", "0.1.6" 
+gem "jquery-atwho-rails"
 
 # 第三方登陆验证
 gem 'omniauth'
