@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20130813060326) do
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
