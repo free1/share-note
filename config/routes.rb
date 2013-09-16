@@ -1,5 +1,8 @@
 Node::Application.routes.draw do
 
+  # 首页
+  root to: 'static_pages#home'
+
   get "password_resets/new"
 
   # github登录
@@ -29,9 +32,6 @@ Node::Application.routes.draw do
 
   # 站内通知
   resources :notifications 
-
-  # 首页
-  root to: 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
