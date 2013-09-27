@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ComicCon</title>
+    <%= stylesheet_link_tag    "home" %>
+    <%= javascript_include_tag "home" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+</head>
+
+<body>
+    <div class="home_main">
+
+        <div id="home_logo">
+            <h1>LOGO</h1>
+        </div>
+
+        <p>
+            <span>欢迎来到 NODE。</span></br>
+            <span>与你关心的人们一起，探寻变化的大千世界。</span>
+        </p>
+
+        <div class="home_sign">
+            <fieldset class="textbox">
+                <%= text_field_tag :email, params[:email], placeholder: '邮件地址' %>
+                <span id="email_verify">X邮件地址不能为空!</span>
+            </br>
+                <%= password_field_tag :password, params[:password], placeholder: '密码' %>
+                <span id="pass_verify">X密码不能为空!</span>
+            </fieldset>
+
+            <fieldset class="subchck">
+                <%= check_box_tag :remember_me, 1, params[:remember_me], id: "checkbox" %>
+                <span class="reminder" id="remember">记住我</span>
+                <%= link_to "忘记密码？", "#", class: "reminder" %>
+                <%= submit_tag "登录", class: "btn" %> </br>
+                <%= link_to "github登录", "/auth/github" %> </br>
+                <%= link_to "注册", signup_path %>
+            </fieldset>
+        </div>
+<!-- 
+        <div class="home_sign">
+            <fieldset class="textbox">
+                <%= text_field_tag :name, params[:name], placeholder: '用户名' %>
+            </br>
+                <%= text_field_tag :email, params[:email], placeholder: '邮件地址' %>
+            </br>
+                <%= password_field_tag :password, params[:password], placeholder: '密码' %>
+            </br>
+                <%= password_field_tag :password_confirmation, params[:password_confirmation], placeholder: '密码确认' %>
+            </fieldset>
+
+            <fieldset class="subchck">
+                <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+                <span class="reminder">下次自动登录</span>
+                <%= submit_tag "创建我的帐号", class: "btn" %>
+            </fieldset>
+        </div> -->
+
+        <!-- <div>
+            目前共有 0 位童鞋加入了! 新版要来啦！
+        </div> -->
+
+    </div>
+</body>
+</html>

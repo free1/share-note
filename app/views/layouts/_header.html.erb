@@ -19,7 +19,7 @@
         <ul class="nav pull-right">
           <li><%= link_to "首页", root_path %></li>
           <li><%= link_to "用户", users_path %></li>
-          <% if signed_in? %>
+     <!--      <% if signed_in? %> -->
             <!-- 站内通知 -->
             <li><%= link_to "#{@unread_count}", notifications_path, :class => "notification_indicator #{'unread' if @unread_count != 0} " %></li>
             <!-- 用户资料设置 -->
@@ -37,10 +37,10 @@
               </ul>
             </li>
           <li><%= link_to "分享",  new_post_path %></li>
-          <% else %>
+<!--           <% else %>
             <li><%= link_to "登录", signin_path %></li>
             <li><%= link_to "注册", signup_path %></li>
-          <% end %>
+          <% end %> -->
         </ul>
       </nav>
    </div>
