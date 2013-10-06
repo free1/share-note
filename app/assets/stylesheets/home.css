@@ -13,17 +13,17 @@ body {
 #home_logo h1 {
 	display: inline-block;
 }
-.home_main p {
-	float: left;
-	/*height: 180px;*/
-	padding: 85px 50px;
+.home_welcome {
+	position: relative;
+	top: 85px;
+	left: 50px;
 }
 .home_main .home_sign {
 	margin-top: 17px;
 	border: 1px solid #e7e7e7;
 	border-radius: 4px;
-	float: right;
 	background-color: #f1f1f1;
+	float: right;
 }
 .home_sign .textbox{
 	width: 260px;

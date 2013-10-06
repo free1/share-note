@@ -12,7 +12,7 @@
 
 /* 小贴士 */
 .tips {
-	background-color: white;
+	background-color: #d1e2f1;
 	width: 225px;
 	height: 120px;
 	border-radius: 6px;
@@ -24,4 +24,12 @@
 }
 .tips .tips_content {
 	padding: 8px;
+}
+
+/* 整体列表样式 */
+ul {
+	list-style: none;
+}
+ul li {
+	display: inline-block;
 }

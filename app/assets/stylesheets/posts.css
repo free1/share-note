@@ -1,7 +1,3 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* posts主体 */
 
 .posts {
@@ -18,9 +14,6 @@
 	border-radius: 6px;
 	float: left;
 	box-shadow: 0 2px 5px #aaaaaa;
-}
-.posts .one_post a {
-	
 }
 .posts .one_post .title {
 	font-size: 20px;
@@ -47,7 +40,7 @@
 }
 .post_main .post_title {
 	padding: 10px;
-	background-color: white;
+	background-color: #d1e2f1;
 	border-radius: 6px;
 }
 .post_main .post_totle_font {
