@@ -3,10 +3,13 @@ Node::Application.routes.draw do
   # 首页
   root to: 'static_pages#home'
 
-  get "password_resets/new"
+  get 'password_resets/new'
 
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
+
+  # qq登录
+  get 'qqlogin'
 
   #发布，评论
   resources :posts do
