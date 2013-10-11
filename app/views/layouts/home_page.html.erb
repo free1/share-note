@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ComicCon</title>
+    <title>NODE</title>
     <%= stylesheet_link_tag    "home" %>
     <%= javascript_include_tag "home" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-</head>
 
-<body>
+    <!-- 随机切换背景图片 -->
+    <script LANGUAGE="JavaScript">
+        bg = new Array(2); 
+        bg[0] = 'http://www.webjx.com/images/logo.gif'  
+        bg[1] = '.gif'
+        bg[2] = 'http://www.webjx.com/images/12090.gif'
+        index = Math.floor(Math.random() * bg.length);
+        document.write("<BODY BACKGROUND="+bg[index]+">");
+    </script> 
+</head>
+<!-- body中背景图片不起作用 -->
+<body style="background-image: url(bg.jpg);">
     <div class="home_main">
 
         <div id="home_logo">
@@ -21,23 +31,25 @@
         </div>
 
         <div class="home_sign">
-            <fieldset class="textbox">
-                <%= text_field_tag :email, params[:email], placeholder: '邮件地址' %>
-                <span id="email_verify">X邮件地址不能为空!</span>
-            </br>
-                <%= password_field_tag :password, params[:password], placeholder: '密码' %>
-                <span id="pass_verify">X密码不能为空!</span>
-            </fieldset>
+            <%= form_tag sessions_path do %>
+                <fieldset class="textbox">
+                    <%= text_field_tag :email, params[:email], placeholder: '邮件地址' %>
+                    <span id="email_verify">X邮件地址不能为空!</span>
+                </br>
+                    <%= password_field_tag :password, params[:password], placeholder: '密码' %>
+                    <span id="pass_verify">X密码不能为空!</span>
+                </fieldset>
 
-            <fieldset class="subchck">
-                <%= check_box_tag :remember_me, 1, params[:remember_me], id: "checkbox" %>
-                <span class="reminder" id="remember">记住我</span>
-                <%= link_to "忘记密码？", "#", class: "reminder" %>
-                <%= submit_tag "登录", class: "btn" %> </br>
-                <%= link_to "github登录", "/auth/github" %> </br>
-                <%= link_to "qq登录", "/qqlogin" %>
-                <%= link_to "注册", signup_path %>
-            </fieldset>
+                <fieldset class="subchck">
+                    <%= check_box_tag :remember_me, 1, params[:remember_me], id: "checkbox" %>
+                    <span class="reminder" id="remember">记住我</span>
+                    <%= link_to "忘记密码？", "#", class: "reminder" %>
+                    <%= submit_tag "登录", class: "btn btn-large btn-primary" %> </br>
+                    <%= link_to "github登录", "/auth/github" %> </br>
+                    <%= link_to "qq登录", "/users/qqlogin" %> </br>
+                    <%= link_to "注册", signup_path %>
+                </fieldset>
+            <% end %>
         </div> 
 <!-- 
         <div class="home_sign">

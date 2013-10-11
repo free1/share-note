@@ -33,6 +33,8 @@ gem 'redcarpet'
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
+  # 生成假数据用于测试
+  gem 'faker', '1.1.2'
 end
 
 group :assets do

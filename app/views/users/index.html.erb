@@ -3,10 +3,13 @@
 	<ol class="follow-list">
 		<% @users.each do |user| %>
 			<li class="follow-list-item">
-				<%= link_to image_tag(user.avatar_url(:small)), user %>
+				<!-- 显示用户上传头像，否则显示默认头像 -->
+				<%= user.avatar? ? link_to(image_tag(user.avatar_url(:small)), user) : link_to(image_tag("uu.jpg", :height => '100', :width => '100'), user) %>
 				<%= link_to user.name, user %>
+				<!-- <p>加入时间: <%= user.created_at.strftime('%F') %></p> -->
 			</li>
 		<% end %>
 	</ol>
 	<div class="class"></div>
 </div>
+<%= will_paginate %>

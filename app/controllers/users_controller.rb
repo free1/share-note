@@ -5,7 +5,7 @@ class UsersController < ApplicationController
                 only: [ :edit, :update, :destroy, :following, :followers ]
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.page(params[:page]).per_page(12)
   end
 
   def show
@@ -49,18 +49,25 @@ class UsersController < ApplicationController
     end
   end
 
+  # 关注
   def following
     @title = "关注"
     @user = User.find(params[:id])
-    @users = @user.followed_users.paginate(page: params[:page])
+    @users = @user.followed_users.page(params[:page]).per_page(12)
     render 'show_follow'
   end
 
+  # 粉丝
   def followers
     @title = "粉丝"
     @user = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.page(params[:page]).per_page(12)
     render 'show_follow'
+  end
+
+  # QQ登录
+  def qqlogin
+    redirect_to Qq.redo("get_user_info")
   end
 
   private

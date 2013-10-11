@@ -12,7 +12,7 @@
 }
 .comment .comment_content {
 	padding: 8px;
-	background-color: #d1e2f1;
+	background-color: white;
 }
 
 
@@ -23,7 +23,7 @@
 }
 .reply_post .reply_main {
 	margin-top: 19px;
-	background-color: #d1e2f1;
+	background-color: white;
 	border-radius: 6px;
 	padding: 9px;
 }

@@ -1,4 +1,4 @@
-/* posts主体 */
+/* 首页posts显示 */
 
 .posts {
 	margin-top: 25px;
@@ -13,7 +13,11 @@
 	padding: 10px;
 	border-radius: 6px;
 	float: left;
-	box-shadow: 0 2px 5px #aaaaaa;
+	cursor: pointer;
+}
+.one_post a {
+	display: block;
+	text-decoration: none;
 }
 .posts .one_post .title {
 	font-size: 20px;
@@ -32,7 +36,7 @@
 }
 
 
-/* 显示post */
+/* 发表post */
 
 .post_main {
 	width: 700px;
@@ -40,7 +44,7 @@
 }
 .post_main .post_title {
 	padding: 10px;
-	background-color: #d1e2f1;
+	background-color: white;
 	border-radius: 6px;
 }
 .post_main .post_totle_font {

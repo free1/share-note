@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
     "http://#{self.website}"
   end
 
-  # 第三方登录
+  # 第三方登录(github)
   class << self
     # 判断用户是否存在
     def from_auth(auth)
@@ -105,6 +105,8 @@ class User < ActiveRecord::Base
       User.new do |user|
         user.name = auth[:info][:nickname]
         user.email = auth[:info][:email]
+        # 提取头像并设置头像
+        # user.avatar = auth[:info][:image]
         # 生成无用的密码保护
         user.password_digest = "#{SecureRandom.urlsafe_base64}"
         # user.auth_token = auth[:token]

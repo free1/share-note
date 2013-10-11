@@ -11,7 +11,7 @@
 			<br/>
 			<%= check_box_tag :remember_me, 1, params[:remember_me] %>
 			记住我
-			<%= submit_tag "登录", class: "btn btn-large btn-primary" %>
+			<%= submit_tag "登录", class: "btn btn-primary" %>
 
 		<% end %>
 
@@ -20,7 +20,9 @@
 	</div>
     
     <div class="signin_github">
-	    <%= link_to image_tag("images/github_logo.gif"), "/auth/github" %>
+    	<h4>其他方式登录</h4> </br>
+	    <%= link_to image_tag("github_logo.gif"), "/auth/github" %> </br> </br>
+	    <%= link_to image_tag("qq_logo.png"), "/users/qqlogin" %>
 	</div>
 
 	<div class="class"></div>

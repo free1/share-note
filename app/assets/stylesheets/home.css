@@ -1,9 +1,5 @@
 body {
 	font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, 'Hiragino Sans GB', sans-serif;
-	background-image: url(home.jpg);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
 }
 .home_main {
 	margin: 50px auto;
