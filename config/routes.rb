@@ -3,8 +3,6 @@ Node::Application.routes.draw do
   # 首页
   root to: 'static_pages#home'
 
-  get 'password_resets/new'
-
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 
@@ -15,7 +13,7 @@ Node::Application.routes.draw do
     end
   end
 
-  #发布，评论
+  #发布内容，评论
   resources :posts do
     resources :comments
   end 
@@ -26,6 +24,7 @@ Node::Application.routes.draw do
       get :following, :followers
     end
   end
+  # 用户关系
   resources :relationships, only: [ :create, :destroy ]
 
   # 用户登录
@@ -38,6 +37,8 @@ Node::Application.routes.draw do
   
   # 找回密码
   resources :password_resets
+  # 重置密码
+  get 'password_resets/new'
 
   # 站内通知
   resources :notifications 
