@@ -6,22 +6,30 @@ Node::Application.routes.draw do
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 
-  # qq登录
-  resources :users do
-    collection do
-      get 'qqlogin'
-    end
-  end
-
   #发布内容，评论
   resources :posts do
+    # 评论
     resources :comments
+
+    # 标签
+    collection do
+      # 文章种类
+      get 'tag_choice'
+      # 文章所属编程语言种类
+      get 'tag_custom'
+    end
   end 
 
-  # 用户及用户关注
+  # 用户系统
   resources :users do
+    # 用户关注
     member do
       get :following, :followers
+    end
+
+    # qq登录
+    collection do
+      get 'qqlogin'
     end
   end
   # 用户关系

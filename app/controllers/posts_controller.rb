@@ -31,10 +31,33 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(params[:post])
 		if @post.save
-			redirect_to post_path(@post)
+			# 给文章打上标签
+			tags = @post.tags.build(kind: session[:kind], language: session[:language])
+		    tags.save
+		    redirect_to post_path(@post)
 		else
-			render 'new'
+			render 'tag_choice'
 		end
+	end
+
+	# 文章种类标签的确定
+	def tag_choice
+     #  if params[:kind]
+	 # 	    session[:kind] = "#{params[:kind]}"
+	 # 	else
+     #      render 'tag_choice'
+	 # 	end
+	end
+	# 文章所属编程语言标签及存入数组
+	def tag_custom
+		@post = current_user.posts.build
+		if params[:language] && params[:kind]
+			session[:kind] = "#{params[:kind]}"
+			session[:language] = "#{params[:language]}"
+	 		render 'new' 
+	 	else
+	 		# render 'tag_choice'
+	 	end
 	end
 
 	# def destroy

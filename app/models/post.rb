@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
 	attr_accessible :content, :title
 
-	has_many :comments
+	has_many :comments, dependent: :destroy
+	has_many :tags, dependent: :destroy
 	belongs_to :user
 
 	validates :user_id, presence: true
@@ -16,7 +17,6 @@ class Post < ActiveRecord::Base
 		text :comments do
 			comments.map { |comment| comment.body  }
 		end
-		
 	end
 
 	#浏览计算器
