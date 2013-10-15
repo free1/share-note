@@ -1,10 +1,13 @@
-<div>
+<div class="menu">
 	<ul>
-		<li>aaa</li>
-		<li>aaa</li>
-		<li>aaa</li>
-		<li>aaa</li>
-		<li>aaa</li>
+		<li><%= link_to "随笔", controller: 'static_pages', action: 'home', kind: "suibi" %></li>
+		<li><%= link_to "博客", controller: 'static_pages', action: 'home', kind: "blog" %></li>
+		<li><%= link_to "日志", controller: 'static_pages', action: 'home', kind: "log" %></li>
+		<li><%= link_to "笔记", controller: 'static_pages', action: 'home', kind: "node" %></li>
+		<li><%= link_to "随笔", controller: 'static_pages', action: 'home', kind: "suibi" %></li>
+		<li><%= link_to "博客", controller: 'static_pages', action: 'home', kind: "blog" %></li>
+		<li><%= link_to "日志", controller: 'static_pages', action: 'home', kind: "log" %></li>
+		<li><%= link_to "笔记", controller: 'static_pages', action: 'home', kind: "node" %></li>
 	</ul>
 </div>
 <ol class="posts">
@@ -13,7 +16,7 @@
 			<div class="one_post">
 				<p class="title"><%= link_to post.title, post %></p>
 				<div class="line"></div>
-				<p class="content"><%= truncate(strip_tags(post.content), length: 100) %></p>
+				<p class="content"><%= link_to truncate(strip_tags(post.content), length: 100), post %></p>
 				<p class="timestamp">
 					<%= time_ago_in_words(post.created_at) %> ago.
 				</p>

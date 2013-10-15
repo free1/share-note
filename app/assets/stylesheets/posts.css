@@ -16,17 +16,23 @@
 	cursor: pointer;
 }
 .one_post a {
+	color: black;
 	display: block;
 	text-decoration: none;
 }
-.posts .one_post .title {
+.one_post .title {
 	font-size: 20px;
     font-weight: bold;   
 }
-.posts .one_post .content {
+.one_post .content {
 	font-size: 15px;
 	/*对多余的内容裁减*/
 	overflow-x: hidden;
+}
+.one_post .content a {
+	display: inline-block;
+	width: 180px;
+	height: 210px;
 }
 .timestamp {
     color:  #eaeaea;
@@ -41,6 +47,9 @@
 .post_main {
 	width: 700px;
 	float: left;
+}
+#page_main {
+	margin-top: 46px;
 }
 .post_main .post_title {
 	padding: 10px;
@@ -65,3 +74,18 @@
 	position: relative;
 	left: 520px;
 }
+
+
+/* post标签选择 */
+.tag {
+	margin: 100px auto;
+	width: 740px;
+	height: 560px;
+	background-color: white;
+}
+.tag a {
+	background-color: red;
+}
+
+
+

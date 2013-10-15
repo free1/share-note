@@ -31,8 +31,8 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(params[:post])
 		if @post.save
-			# 给文章打上标签
-			tags = @post.tags.build(kind: session[:kind], language: session[:language])
+			# 给文章打上标签方便检索
+			tags = Tag.new(kind: session[:kind], language: session[:language], post_id: @post.id)
 		    tags.save
 		    redirect_to post_path(@post)
 		else

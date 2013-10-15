@@ -1,5 +1,23 @@
-/* page */
-
-#page_main {
-	margin-top: 46px;
+/* 顶部导航样式 */
+.menu {
+	padding: 15px 10px;
+	border-radius: 5px;
+	background-color: #cfa972;
 }
+.menu ul li {
+    margin-left: 40px;
+}
+.menu ul li a {
+	color: white;
+	padding: 10px;
+	font-size: 17px;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #cfa972;
+	border-radius: 7px;
+}
+.menu ul li a:hover {
+	color: #cfa972;
+	background-color: white;
+}
+

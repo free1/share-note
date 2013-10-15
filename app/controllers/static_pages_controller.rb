@@ -3,13 +3,30 @@ class StaticPagesController < ApplicationController
 	layout :choose_home_page
 
 	def home
-		@posts = Post.page(params[:page]).per_page(12)
-		# @posts = Post.all
+		if params[:kind]
+			# 根据用户选择的种类找出文章
+			@tag = params[:kind]
+			@posts = @tag.posts.where(kind: params[:kind])
+			render 'home'
+        else
+        	# 找出所有文章
+		    @posts = Post.page(params[:page]).per_page(12)
+		end
+		# QQ登录操作
 		login_by_qq unless params[:code].nil?
 	end
 
-	  def new
-  end
+	# def menu
+	# 	if params[:kind]
+ #            @tag = Tag.tag_search_posts(params[:kind])
+ #            render 'home'
+	# 	else
+	# 		redirect_to root_path
+	# 	end
+	# end
+
+	def new
+    end
 
 	private
 		def choose_home_page

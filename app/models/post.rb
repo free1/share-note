@@ -2,7 +2,10 @@ class Post < ActiveRecord::Base
 	attr_accessible :content, :title
 
 	has_many :comments, dependent: :destroy
-	has_many :tags, dependent: :destroy
+	# 给文章打标签
+	belongs_to :tag
+	# has_one :tag
+
 	belongs_to :user
 
 	validates :user_id, presence: true
