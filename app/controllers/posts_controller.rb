@@ -19,7 +19,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@post.increment(:viewed_count)                        #浏览计数器
+		#浏览计数器
+		@post.increment(:viewed_count)                       
 		@comment = @post.comments.build
 		@comments = @post.comments
 	end
@@ -29,24 +30,22 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = current_user.posts.build(params[:post])
+		# 给文章打上标签方便检索
+		tag = Tag.new(kind: session[:kind], language: session[:language])
+		tag.save
+		@post = current_user.posts.build(title: params[:post][:title], content: params[:post][:content], tag_id: tag.id)
 		if @post.save
-			# 给文章打上标签方便检索
-			tags = Tag.new(kind: session[:kind], language: session[:language], post_id: @post.id)
-		    tags.save
 		    redirect_to post_path(@post)
 		else
+			# 文章创建失败就删除标签
+			tag.destroy
+			flash.now[:error] = "文章标题和内容都不可以为空哦！"
 			render 'tag_choice'
 		end
 	end
 
 	# 文章种类标签的确定
 	def tag_choice
-     #  if params[:kind]
-	 # 	    session[:kind] = "#{params[:kind]}"
-	 # 	else
-     #      render 'tag_choice'
-	 # 	end
 	end
 	# 文章所属编程语言标签及存入数组
 	def tag_custom

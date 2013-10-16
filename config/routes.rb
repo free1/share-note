@@ -2,9 +2,7 @@ Node::Application.routes.draw do
 
   # 首页
   root to: 'static_pages#home'
-  # 首页菜单选择
-  # match "/menu", to: 'static_pages#menu'
-
+  
   # github登录
   match "/auth/:provider/callback", :to => 'omniauths#create'
 

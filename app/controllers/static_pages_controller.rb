@@ -5,8 +5,8 @@ class StaticPagesController < ApplicationController
 	def home
 		if params[:kind]
 			# 根据用户选择的种类找出文章
-			@tag = params[:kind]
-			@posts = @tag.posts.where(kind: params[:kind])
+			tag = Tag.where("kind = #{params[:kind]}")
+			@posts = tag.posts
 			render 'home'
         else
         	# 找出所有文章
@@ -15,15 +15,6 @@ class StaticPagesController < ApplicationController
 		# QQ登录操作
 		login_by_qq unless params[:code].nil?
 	end
-
-	# def menu
-	# 	if params[:kind]
- #            @tag = Tag.tag_search_posts(params[:kind])
- #            render 'home'
-	# 	else
-	# 		redirect_to root_path
-	# 	end
-	# end
 
 	def new
     end
