@@ -5,8 +5,7 @@ class StaticPagesController < ApplicationController
 	def home
 		if params[:kind]
 			# 根据用户选择的种类找出文章
-			tag = Tag.where("kind = #{params[:kind]}")
-			@posts = tag.posts
+			@posts = Post.where(kind: "#{params[:kind]}").page(params[:page]).per_page(12)
 			render 'home'
         else
         	# 找出所有文章

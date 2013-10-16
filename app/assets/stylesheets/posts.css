@@ -77,13 +77,13 @@
 
 
 /* post标签选择 */
-.tag {
+.kind {
 	margin: 100px auto;
 	width: 740px;
 	height: 560px;
 	background-color: white;
 }
-.tag a {
+.kind a {
 	background-color: red;
 }
 

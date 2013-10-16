@@ -1,16 +1,14 @@
 class Post < ActiveRecord::Base
-	attr_accessible :content, :title, :tag_id
+	attr_accessible :content, :title, :kind
 
 	has_many :comments, dependent: :destroy
-	# 给文章打标签,一篇文章有一个标签用来索引
-	belongs_to :tag
 
 	belongs_to :user
 
 	validates :user_id, presence: true
-	validates :tag_id, presence: true
 	validates :title, presence: true, length: { maximum: 50 }
 	validates :content, presence: true, length: { maximum: 900 }
+	validates :kind, presence: true, inclusion: { in: %w(node blog suibi log news acm activity tool) }
 
 	default_scope order: 'posts.created_at DESC'
 

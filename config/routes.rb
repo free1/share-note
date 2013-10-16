@@ -14,9 +14,7 @@ Node::Application.routes.draw do
     # 标签
     collection do
       # 文章种类
-      get 'tag_choice'
-      # 文章所属编程语言种类
-      get 'tag_custom'
+      get 'post_kind'
     end
   end 
 
