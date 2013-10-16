@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>share-node</title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
-  </body>
-</html>
+    <head>
+        <title>share-node</title>
+        <%= stylesheet_link_tag    "application", media: "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <%= render 'layouts/shim' %>
+    </head>
+    <body>
+        <%= render 'layouts/header' %>
+        <div class="container">
+            <!-- 用户信息提示 -->
+            <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
 
+            <%= yield %>
+
+            <!-- 回到顶部 -->
+            <div id="go_top" style="display: none;"><%= image_tag("go_top.jpg") %></div>
+            <script type="text/javascript">goTopEx();</script>
+
+            <%= render 'layouts/footer' %>
+        </div>
+    </body>
+</html>

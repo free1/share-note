@@ -17,9 +17,9 @@
 				<p class="title"><%= link_to post.title, post %></p>
 				<div class="line"></div>
 				<p class="content"><%= link_to truncate(strip_tags(post.content), length: 100), post %></p>
-				<p class="timestamp">
+				<!-- <p class="timestamp">
 					<%= time_ago_in_words(post.created_at) %> ago.
-				</p>
+				</p> -->
 			</div>
 		</li>
 	<% end %>

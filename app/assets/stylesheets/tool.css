@@ -9,6 +9,14 @@
 	clear: both; 
 }
 
+/* 回到顶部 */
+#go_top {
+	position: fixed;
+	bottom: 35px;
+	cursor: pointer;
+	right: 0;
+}
+
 
 /* 小贴士 */
 .tips {

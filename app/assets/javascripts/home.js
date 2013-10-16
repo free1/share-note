@@ -1,3 +1,4 @@
+// js
 window.onload = function()
 {
 	// 点击div 选中checkbox
