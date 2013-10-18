@@ -79,13 +79,30 @@
 /* post标签选择 */
 .kind {
 	margin: 100px auto;
-	width: 740px;
-	height: 560px;
+	padding: 80px;
+	width: 640px;
+	height: 350px;
 	background-color: white;
 }
-.kind a {
-	background-color: red;
+.kind ul {
+	text-align: center;
 }
-
+.kind .choose {
+	height: 40px;
+	line-height: 40px;
+	font-size: 25px;
+	display: block;
+}
+.kind a {
+	color: white;
+	font-size: 25px;
+	display: block;
+	padding: 49px;
+	background-color: red;
+	opacity: 0.6;
+}
+.kind a:hover {
+	text-decoration: none;
+}
 
 

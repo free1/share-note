@@ -20,9 +20,9 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		#浏览计数器
-		@post.increment(:viewed_count)                       
+		@post.increment(:viewed_count)   
+		@comments = @post.comments                    
 		@comment = @post.comments.build
-		@comments = @post.comments
 	end
 
 	def new
@@ -54,6 +54,16 @@ class PostsController < ApplicationController
 	 		render 'post_kind'
 	 	end
 	end
+
+	# 用户可以收藏自己喜欢的文章
+	# def collect
+	# 	if params[:id]
+	# 		@post = Post.find(params[:id])
+	# 		@comment = @post.comments.build
+	# 		@comments = @post.comments
+	# 		render 'show'
+	# 	end
+	# end
 
 	# def destroy
 	# 	@post.destroy

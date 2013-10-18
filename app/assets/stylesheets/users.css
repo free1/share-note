@@ -36,10 +36,10 @@
 }
 
 
-/* 用户资料 */
+/* 显示单个用户资料 */
 
 .show_user {
-	background-color: #d1e2f1;
+	background-color: white;
 	width: 550px;
 	border-radius: 6px;
 	padding: 15px;

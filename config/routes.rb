@@ -16,6 +16,11 @@ Node::Application.routes.draw do
       # 文章种类
       get 'post_kind'
     end
+
+    # 用户文章收藏
+    # member do
+    #   get 'collect'
+    # end
   end 
 
   # 用户系统

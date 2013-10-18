@@ -1,8 +1,10 @@
 <div class="notification_main">
 	<h3>新的通知提醒（<%= @unread_count %> 条）</h3>
+	<!-- 文章回复 -->
 	<span>收到的回复</span>
 	<% @notifications.each do |notification| %>
         <%= render notification %>
     <% end %>
+    <!-- @到我的 -->
     <span>提到我的</span>
 </div>

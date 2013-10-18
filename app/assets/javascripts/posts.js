@@ -9,4 +9,14 @@ $(document).ready(function(){
 			$(this).css("box-shadow", "0 0 0 white");
 		}
 	);
+
+	// 发表文章时选择类型
+	$(".kind a").hover(
+		function(){
+			$(this).css("opacity", "1");
+		},
+		function(){
+			$(this).css("opacity", "0.6")
+		}
+	);
 });
