@@ -54,11 +54,11 @@ body {
 .home_sign .subchck {
 	border: none;
 }
-.reminder {
+/*#remember_me {
 	color: #c8c8c8;
 	font-size: 0.8em;
 	cursor: pointer;
-}
+}*/
 
 .subchck .btn {
 	margin-left: 70px;

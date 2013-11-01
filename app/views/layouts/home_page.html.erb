@@ -41,7 +41,8 @@
                 </fieldset>
 
                 <fieldset class="subchck">
-                    <%= check_box_tag :remember_me, 1, params[:remember_me], id: "checkbox" %>
+                    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+                    <%= label_tag :remember_me, "记住我" %>
                     <span class="reminder" id="remember">记住我</span>
                     <%= link_to "忘记密码？", "#", class: "reminder" %>
                     <%= submit_tag "登录", class: "btn btn-large btn-primary" %> </br>
