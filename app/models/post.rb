@@ -26,4 +26,5 @@ class Post < ActiveRecord::Base
 		self[attribute] += by
 		self.save
 	end
+
 end

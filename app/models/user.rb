@@ -90,6 +90,17 @@ class User < ActiveRecord::Base
     "http://#{self.website}"
   end
 
+
+  # 收藏功能
+  def collect?
+    false
+  end
+
+  def collect!(post_id)
+    
+  end
+
+
   # 第三方登录(github)
   class << self
     # 判断用户是否存在

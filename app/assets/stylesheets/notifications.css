@@ -9,7 +9,8 @@
 .notification_comment {
     margin-top: 10px;
     border: 1px solid #a6a6a6;
-    padding: 20px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .notification_indicator{

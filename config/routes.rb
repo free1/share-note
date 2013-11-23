@@ -10,7 +10,7 @@ Node::Application.routes.draw do
   resources :posts do
     # 评论
     resources :comments
-
+    
     # 标签
     collection do
       # 文章种类
@@ -25,13 +25,16 @@ Node::Application.routes.draw do
 
   # 用户系统
   resources :users do
-    # 用户关注
+   
     member do
+      # 用户关注
       get :following, :followers
+      # 文章收藏
+      get :collect
     end
 
-    # qq登录
     collection do
+      # qq登录
       get 'qqlogin'
     end
   end
