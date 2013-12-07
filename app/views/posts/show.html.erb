@@ -13,19 +13,14 @@
 			 	<% end %>
 			 	    • <%= @post.viewed_count %> 次阅读
 			</div>
-			<!-- 收藏文章功能 -->
-<!-- 			<div>
-				<% unless current_user?(@user) %>
-					<% if current_user.collect? %>
-						<%= render 'uncollect' %>
-					<% else %>
-						<%= render 'collect' %>
-					<% end %>
-				<% end %>
-			</div> -->
 			<div class="line"></div>
 			<!-- 文章内容 -->
-			<div class="post_content"><%= wrap(markdown(@post.content)) %></div>
+			<div class="post_content"><%= wrap(markdown(@post.content)) %>
+			<!-- 收藏文章功能 -->
+			<div>
+				
+			</div>
+			</div>
 		</div>
 	</div>
 

@@ -55,16 +55,6 @@ class PostsController < ApplicationController
 	 	end
 	end
 
-	# 用户可以收藏自己喜欢的文章
-	# def collect
-	# 	if params[:id]
-	# 		@post = Post.find(params[:id])
-	# 		@comment = @post.comments.build
-	# 		@comments = @post.comments
-	# 		render 'show'
-	# 	end
-	# end
-
 	# def destroy
 	# 	@post.destroy
 	# 	redirect_to root_path
