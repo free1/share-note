@@ -13,7 +13,7 @@
 	padding: 10px;
 	border-radius: 6px;
 	float: left;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 .one_post a {
 	color: black;
@@ -22,9 +22,10 @@
 }
 .one_post .title {
 	font-size: 20px;
-    font-weight: bold;   
+    font-weight: bold;
 }
 .one_post .content {
+	margin-top: 6px;
 	font-size: 15px;
 	/*对多余的内容裁减*/
 	overflow-x: hidden;
@@ -35,10 +36,11 @@
 	height: 280px;
 }
 .timestamp {
-    color:  #eaeaea;
+    color:  #c3cad8;
     font-size: 11px;
- /* position: absolute;
-  top: 300px;*/
+    margin-top: 230px;
+	/*position: absolute;
+	top: 300px;*/
 }
 
 

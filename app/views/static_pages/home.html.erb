@@ -14,9 +14,18 @@
 	<% @posts.each do |post| %>
 		<li>
 			<div class="one_post">
+				<%= link_to post do %>
+					<p class="title"><%= post.title %></p>
+					<div class="line"></div>
+					<p class="content"><%= truncate(strip_tags(post.content), length: 100) %></p>
+					<p class="timestamp">
+						<%= time_ago_in_words(post.created_at) %> ago.
+					</p>
+				<% end %>
+			<!-- 
 				<p class="title"><%= link_to post.title, post %></p>
 				<div class="line"></div>
-				<p class="content"><%= link_to truncate(strip_tags(post.content), length: 100), post %></p>
+				<p class="content"><%= link_to truncate(strip_tags(post.content), length: 100), post %></p> -->
 				<!-- <p class="timestamp">
 					<%= time_ago_in_words(post.created_at) %> ago.
 				</p> -->
