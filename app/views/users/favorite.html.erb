@@ -1,0 +1,5 @@
+<h3>我的收藏</h3>
+<% @favorite_posts.each do |favorite_post| %>
+  <h4><%= link_to favorite_post.title, favorite_post %></h4>
+  <p><%= truncate(strip_tags(favorite_post.content), length: 100) %><p/>
+<% end %>

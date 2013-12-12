@@ -26,17 +26,17 @@ Node::Application.routes.draw do
 
   # 用户系统
   resources :users do
-   
+
     member do
       # 用户关注
       get :following, :followers
-      # 文章收藏(喜爱)
-      get :favorites
     end
 
     collection do
       # qq登录
       get 'qqlogin'
+      # 文章收藏(喜爱)
+      get :favorite
     end
   end
   # 用户关系

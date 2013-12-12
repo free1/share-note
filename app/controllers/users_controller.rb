@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :signed_in_user,
-                only: [ :edit, :update, :destroy, :following, :followers ]
+                only: [ :edit, :update, :destroy, :following, :followers, :favorite ]
 
   def index
     @users = User.page(params[:page]).per_page(12)
@@ -68,6 +68,11 @@ class UsersController < ApplicationController
   # QQ登录
   def qqlogin
     redirect_to Qq.redo("get_user_info")
+  end
+
+  # 显示收藏的文章
+  def favorite
+    @favorite_posts = Post.where(id: current_user.favorite_topic_ids.split(","))
   end
 
 
