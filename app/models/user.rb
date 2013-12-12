@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :website, :github,
                   :twitter, :qq, :city, :company, :position, :autograph, :resume,
-                  :avatar, :avatar_cache
+                  :avatar, :avatar_cache, :favorite_topic_ids
   # 安全密码
   has_secure_password
 
@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   before_save { github_url }
   before_save { twitter_url }
   before_save { website_url }
+  # 如果首次收藏文章把nil变成空字符串
+  before_save { self.favorite_topic_ids = " " if self.favorite_topic_ids == nil }
  
   # 用户身份验证
   # validates :name, presence: true, length: { maximum: 50 }
@@ -91,16 +93,6 @@ class User < ActiveRecord::Base
   end
 
 
-  # 收藏功能
-  def collect?
-    false
-  end
-
-  def collect!(post_id)
-    
-  end
-
-
   # 第三方登录(github)
   class << self
     # 判断用户是否存在
@@ -129,6 +121,30 @@ class User < ActiveRecord::Base
          user.save!(validate: false)
       end
     end
+  end
+
+
+  # 收藏功能
+  def favorite_topic(post_id)
+    return false if post_id.blank?
+    return false if self.favorite_topic_ids.include?(post_id)
+    # 把文章id存入数据库
+    post_ids = self.favorite_topic_ids.insert(1, ",#{post_id}")
+    # 测试post_ids是否正确
+    # logger.debug { "---#{post_ids}" }
+    self.update_attribute(:favorite_topic_ids, "1")   # 不使用这句无法将数据存入数据库
+    self.update_attribute(:favorite_topic_ids, post_ids)
+  end
+  # 取消收藏
+  def unfavorite_topic(post_id)
+    return false if post_id.blank?
+    # 删除选中的文章id
+    post_ids = self.favorite_topic_ids.split(",")
+    post_ids.delete "#{post_id}"
+    post_ids_result = post_ids.join(",")
+    # 测试post_ids_result是否正确
+    # logger.debug { "---#{post_ids_result}" }
+    self.update_attribute(:favorite_topic_ids, post_ids_result)
   end
 
 

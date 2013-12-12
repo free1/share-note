@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016021129) do
+ActiveRecord::Schema.define(:version => 20131209033850) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20131016021129) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "user_post_ships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -81,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20131016021129) do
     t.string   "autograph"
     t.text     "resume"
     t.string   "avatar"
+    t.string   "favorite_topic_ids"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

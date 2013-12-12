@@ -10,6 +10,11 @@ Node::Application.routes.draw do
   resources :posts do
     # 评论
     resources :comments
+
+    member do
+      # 文章收藏功能
+      get :favorite
+    end
     
     # 标签
     collection do
@@ -17,10 +22,6 @@ Node::Application.routes.draw do
       get 'post_kind'
     end
 
-    # 用户文章收藏
-    # member do
-    #   get 'collect'
-    # end
   end 
 
   # 用户系统
@@ -29,8 +30,8 @@ Node::Application.routes.draw do
     member do
       # 用户关注
       get :following, :followers
-      # 文章收藏
-      get :collect
+      # 文章收藏(喜爱)
+      get :favorites
     end
 
     collection do

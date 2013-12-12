@@ -15,11 +15,12 @@
 			</div>
 			<div class="line"></div>
 			<!-- 文章内容 -->
-			<div class="post_content"><%= wrap(markdown(@post.content)) %>
-			<!-- 收藏文章功能 -->
-			<div>
-				
-			</div>
+			<div class="post_content">
+				<%= wrap(markdown(@post.content)) %>
+				<!-- 收藏文章功能 -->
+				<div>
+					<%= topic_favorite_tag(@post) %>
+				</div>
 			</div>
 		</div>
 	</div>

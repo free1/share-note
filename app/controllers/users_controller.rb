@@ -70,9 +70,6 @@ class UsersController < ApplicationController
     redirect_to Qq.redo("get_user_info")
   end
 
-  def collect
-    
-  end
 
   private
     # 用户只能修改自己的资料

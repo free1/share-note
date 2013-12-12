@@ -55,6 +55,17 @@ class PostsController < ApplicationController
 	 	end
 	end
 
+  # 文章收藏(喜爱)
+  def favorite
+    if(current_user.favorite_topic_ids.include?(params[:id].to_s))
+      current_user.unfavorite_topic(params[:id])
+    else
+      current_user.favorite_topic(params[:id])
+    end
+
+    redirect_to post_path(params[:id])
+  end
+
 	# def destroy
 	# 	@post.destroy
 	# 	redirect_to root_path
