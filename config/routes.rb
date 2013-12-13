@@ -13,7 +13,11 @@ Node::Application.routes.draw do
 
     member do
       # 文章收藏功能
-      get :favorite
+      # get :favorite
+      # 赞功能
+      # get :zan
+      # 文章收藏，赞功能
+      get :topic_function
     end
     
     # 标签

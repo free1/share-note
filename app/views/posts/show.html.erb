@@ -19,7 +19,11 @@
 				<%= wrap(markdown(@post.content)) %>
 				<!-- 收藏文章功能 -->
 				<div>
-					<%= topic_favorite_tag(@post) %>
+					<%= topic_function_tag(@post, 'favorite_topic_ids', '收藏', '取消收藏') %>
+				</div>
+				<!-- 赞功能 -->
+				<div>
+					<%= topic_function_tag(@post, 'zan_topic_ids', '赞', '已赞') %>
 				</div>
 			</div>
 		</div>

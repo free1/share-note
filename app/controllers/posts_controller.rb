@@ -56,11 +56,41 @@ class PostsController < ApplicationController
 	end
 
   # 文章收藏(喜爱)
-  def favorite
-    if(current_user.favorite_topic_ids.include?(params[:id].to_s))
-      current_user.unfavorite_topic(params[:id])
+  # def favorite
+  #   if(current_user.favorite_topic_ids.include?(params[:id].to_s))
+  #     current_user.unfavorite_topic(params[:id])
+  #   else
+  #     current_user.favorite_topic(params[:id])
+  #   end
+
+  #   redirect_to post_path(params[:id])
+  # end
+
+  # # 赞文章
+  # def zan
+  # 	if(current_user.zan_topic_ids.include?(params[:id].to_s))
+  # 		current_user.yizan_topic(params[:id])
+  # 	else
+  # 		current_user.zan_topic(params[:id])
+  # 	end
+
+  # 	redirect_to post_path(params[:id])
+  # end
+
+  def topic_function
+  	# 根据传入的值判断操作
+	 	if params[:function_chose] == "favorite_topic_ids"
+	 		topic_ids = current_user.favorite_topic_ids
+	 		type = "favorite_topic_ids"
+	 	else
+	 		topic_ids = current_user.zan_topic_ids
+	 		type = "zan_topic_ids"
+	 	end	
+
+ 		if(topic_ids.include?(params[:id].to_s))
+      current_user.cancel_topic(params[:id], topic_ids, type)
     else
-      current_user.favorite_topic(params[:id])
+      current_user.operate_topic(params[:id], topic_ids, type)
     end
 
     redirect_to post_path(params[:id])
