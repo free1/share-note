@@ -28,21 +28,6 @@ Node::Application.routes.draw do
 
   end 
 
-  # 用户系统
-  resources :users do
-
-    member do
-      # 用户关注
-      get :following, :followers
-    end
-
-    collection do
-      # qq登录
-      get 'qqlogin'
-      # 文章收藏(喜爱)
-      get :favorite
-    end
-  end
   # 用户关系
   resources :relationships, only: [ :create, :destroy ]
 
@@ -58,8 +43,27 @@ Node::Application.routes.draw do
   resources :password_resets
   # 重置密码
   get 'password_resets/new'
+  
 
   # 站内通知
   resources :notifications 
-  
+
+  # 用户系统
+  resources :users do
+
+    member do
+      # 用户关注
+      get :following, :followers
+      # 文章收藏(喜爱)
+      get :favorite
+      # 签到
+      get :qiandao
+      get :qiandao_execute
+    end
+
+    collection do
+      # qq登录
+      get :qqlogin
+    end
+  end
 end

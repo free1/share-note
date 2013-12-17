@@ -86,7 +86,7 @@ class PostsController < ApplicationController
 	 		topic_ids = current_user.zan_topic_ids
 	 		type = "zan_topic_ids"
 	 	end	
-
+    # 根据是否关注(赞)选择方法
  		if(topic_ids.include?(params[:id].to_s))
       current_user.cancel_topic(params[:id], topic_ids, type)
     else

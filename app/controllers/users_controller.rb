@@ -49,6 +49,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "用户已删除"
+    redirect_to users_path
+  end
+
   # 关注
   def following
     @title = "关注"
@@ -75,6 +81,36 @@ class UsersController < ApplicationController
     @favorite_posts = Post.where(id: current_user.favorite_topic_ids.split(","))
   end
 
+  # 签到功能
+  def qiandao
+    # 如果数据库没有签到数据则创建一条防止nil
+    if current_user.qiandaos == []
+      current_user.qiandaos.create(qiandao_day_count: 0, qiandao_day_time: 0)
+    end
+    @qiandao_day_count = current_user.qiandaos.last.qiandao_day_count
+    @is_qiandao = Time.now.strftime('%m%d').to_i - current_user.qiandaos.last.qiandao_day_time
+    render 'qiandao_execute'
+  end
+  # 执行签到功能
+  def qiandao_execute
+    @qiandao_day_count = current_user.qiandaos.last.qiandao_day_count
+    @is_qiandao = Time.now.strftime('%m%d').to_i - current_user.qiandaos.last.qiandao_day_time
+
+    now_time = Time.now.strftime('%m%d').to_i
+    continuous_day = now_time. - current_user.qiandaos.last.qiandao_day_time
+    # 用时间判断是否连续签到
+    if continuous_day == 1
+      # 昨天签过到
+      qiandao_day_count = current_user.qiandaos.last.qiandao_day_count + 1
+      current_user.qiandaos.create(qiandao_day_count: qiandao_day_count, qiandao_day_time: now_time)
+    elsif continuous_day == 0
+      # 连续点击签到无效
+      flash.now[:error] = "今天已经签到了哦!"
+    else
+      # 没有连续签到或首次签到
+      current_user.qiandaos.create(qiandao_day_count: 1, qiandao_day_time: now_time)
+    end
+  end
 
   private
     # 用户只能修改自己的资料

@@ -16,7 +16,7 @@ module SessionsHelper
 		self.current_user = user
 	end
 
-    # setter
+  # setter
 	def current_user=(user)
 		@current_user = user
 	end
@@ -24,7 +24,7 @@ module SessionsHelper
 	def current_user
 		@current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
 	end
-    # 判断是否为当前用户
+  # 判断是否为当前用户
 	def current_user?(user)
 		user == current_user
 	end

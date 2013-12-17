@@ -1,0 +1,6 @@
+<% if @is_qiandao == 0 %>
+  <%= link_to "今天已签到", controller: 'users', action: 'qiandao_execute' %></br>
+<% else %>
+  <%= link_to "签到", controller: 'users', action: 'qiandao_execute' %></br>
+<% end %>
+已连续签到 <%= @qiandao_day_count %> 天

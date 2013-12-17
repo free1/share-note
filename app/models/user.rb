@@ -16,7 +16,10 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   # 站内通知提醒
-  has_many :notifications
+  has_many :notifications, dependent: :destroy
+
+  # 签到功能
+  has_many :qiandaos, dependent: :destroy
 
   # 用户关注
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -35,7 +38,7 @@ class User < ActiveRecord::Base
   # 如果首次收藏文章把nil变成空字符串
   before_save { self.favorite_topic_ids = " " if self.favorite_topic_ids == nil }
   before_save { self.zan_topic_ids = " " if self.zan_topic_ids == nil }
-  
+
   # 用户身份验证
   # validates :name, presence: true, length: { maximum: 50 }
   # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

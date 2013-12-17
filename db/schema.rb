@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213012436) do
+ActiveRecord::Schema.define(:version => 20131217070334) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(:version => 20131213012436) do
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
 
+  create_table "qiandaos", :force => true do |t|
+    t.integer  "qiandao_day_time",  :limit => 255, :default => 0
+    t.integer  "qiandao_day_count"
+    t.integer  "user_id"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -61,13 +69,6 @@ ActiveRecord::Schema.define(:version => 20131213012436) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
-
-  create_table "user_post_ships", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
