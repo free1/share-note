@@ -5,17 +5,17 @@ class PostsController < ApplicationController
 	# before_filter :correct_user, only: :destroy
 
 	# 全文搜索
-	def index
-		if params[:search].blank?
-			flash[:error] = "请输入您要查找的内容！"
-			redirect_to root_path
-		else
-			@search = Post.search do 
-				fulltext params[:search]
-			end
-			@posts = @search.results
-		end
-	end
+	# def index
+	# 	if params[:search].blank?
+	# 		flash[:error] = "请输入您要查找的内容！"
+	# 		redirect_to root_path
+	# 	else
+	# 		@search = Post.search do 
+	# 			fulltext params[:search]
+	# 		end
+	# 		@posts = @search.results
+	# 	end
+	# end
 
 	def show
 		@post = Post.find(params[:id])

@@ -15,15 +15,10 @@ log/*.log*
 tmp/**/*
 .sass-cache/
 public/assets/
-config/database.yml
-config/mongoid.yml
 config/config.yml
 config/thin.yml
-config/redis.yml
 config/mailer_daemon.yml
 public/uploads/**/*
-public/topics
-public/topics/**/*
 .redcar
 .DS_Store
 *.swp
@@ -36,4 +31,5 @@ solr/pids/
 bin/
 tags
 chromedriver.log
+.secret
 
