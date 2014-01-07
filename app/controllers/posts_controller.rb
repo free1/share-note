@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		#浏览计数器
 		@post.increment(:viewed_count)   
-		@comments = @post.comments                    
+		@comments = @post.comments.compact                    
 		@comment = @post.comments.build
 	end
 

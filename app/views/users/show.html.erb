@@ -2,7 +2,7 @@
 	<div class="user_info_main">
 		第<%= @user.id %>号会员  <br/>
 		名字: <%= @user.name %> <br/>
-		Email: <%= link_to @user.email, "#" %> <br/>
+		Email: <%= @user.email %> <br/>
 
 		<% if !@user.website.blank? %>
 			博客:   <%= link_to @user.website, @user.website_url %> <br/>

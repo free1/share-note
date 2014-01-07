@@ -22,18 +22,15 @@ $(document).ready(function(){
 
     
     // @评论者
-	// var commenter = [];
-	// var commenter_exist= [];
-	// $('.comment-header-author').each(function() {
-	// 	if($.inArray($(this).text(), commenter_exist) < 0){
-	// 		  commenter.push($(this).text());
-	// 		  commenter_exist.push($(this).text());
-	// 	}
-	// });
-
-	data = ['tom','john'];
-	$(".textarea").atwho({at:"@", 'data':data});
-
+		var commenter = [];
+		// 循环遍历评论者
+		$('.comment_commenter').each(function() {
+			// 当找到的评论者没有包含到数组中时，就加入数组
+			if($.inArray($(this).text(), commenter) < 0){
+		      commenter.push($(this).text());
+		    }
+		});
+		$(".textarea").atwho({at:"@", 'data':commenter});
 });
 
 

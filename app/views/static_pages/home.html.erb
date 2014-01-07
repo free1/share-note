@@ -10,6 +10,8 @@
 		<li><%= link_to "ACM", controller: 'static_pages', action: 'home', kind: "acm" %></li>
 	</ul>
 </div>
+<h3>首页</h3>
+<h4>共有<%= @posts.count %>篇文章</h4>
 <ol class="posts">
 	<% @posts.each do |post| %>
 		<li>

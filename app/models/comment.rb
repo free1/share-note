@@ -20,7 +20,7 @@ class Comment < ActiveRecord::Base
       notification_users_id = []
       unless at_users.blank?
           at_users.each do |at_user|
-            exist_user =  User.find_by_name(at_user)
+            exist_user = User.find_by_name(at_user)
             # 用户存在则把id加入数组
             unless exist_user.nil?
               notification_users_id << exist_user.id 
@@ -29,7 +29,7 @@ class Comment < ActiveRecord::Base
           notification_users_id
       end
       # 将发表文章的人加进来
-      notification_users_id << self.post.user.id
+      notification_users_id << self.post.user.id 
       # 去掉重复的人
       notification_users_id.uniq
     end

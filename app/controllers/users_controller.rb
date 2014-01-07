@@ -5,7 +5,7 @@ class UsersController < ApplicationController
                 only: [ :edit, :update, :destroy, :following, :followers, :favorite ]
 
   def index
-    @users = User.page(params[:page]).per_page(12)
+    @users = User.page(params[:page])
   end
 
   def show
