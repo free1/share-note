@@ -71,7 +71,9 @@
 <!-- 显示该用户评论过的文章 -->
 <div>
 	<h3>我发表的评论</h3>
-	<%  %>
+	<% @user.comments.each do |comment| %>
+		文章标题<%= link_to comment.post.title, post_path(comment.post) %>
+		评论内容<%= comment.body %>  <br/>
 	<% end %>
 </div>
  

@@ -1,13 +1,15 @@
 class Comment < ActiveRecord::Base
   attr_accessible :body, :commenter
 
-  # 属于一个post
   belongs_to :post
+  belongs_to :user
+
   # 有多个站内通知
   has_many :notifications
   after_create :send_notifications
 
   validates :post_id, presence: true
+  validates :user_id, presence: true
   validates :commenter, presence: true
   validates :body, presence: true, length: { maximum: 600 }
 
