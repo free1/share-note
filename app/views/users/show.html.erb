@@ -60,11 +60,18 @@
 <div>
 	<h3>我发表的文章</h3>
 	<% @posts.each do |post| %>
-		<%= link_to post.title, post_path(post) %>
+		文章标题<%= link_to post.title, post_path(post) %>
+		共<%= post.comments.count %>条回复
 		<!-- 删除链接 -->
 		<% if current_user?(post.user) %>
 			<%= link_to "删除", post, method: :delete, data: { confirm: "确定要删除吗?" } %>  <br/>
 		<% end %>
 	<% end %>
 </div>
-
+<!-- 显示该用户评论过的文章 -->
+<div>
+	<h3>我发表的评论</h3>
+	<%  %>
+	<% end %>
+</div>
+ 
