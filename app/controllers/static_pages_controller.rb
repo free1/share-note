@@ -7,16 +7,16 @@ class StaticPagesController < ApplicationController
 			# 根据用户选择的种类找出文章
 			@posts = Post.where(kind: "#{params[:kind]}").page(params[:page]).per_page(12)
 			render 'home'
-        else
-        	# 找出所有文章
-		    @posts = Post.page(params[:page]).per_page(12)
+	  else
+	    # 找出所有文章
+	    @posts = Post.page(params[:page]).per_page(12)
 		end
 		# QQ登录操作
 		login_by_qq unless params[:code].nil?
 	end
 
 	def new
-    end
+  end
 
 	private
 		def choose_home_page

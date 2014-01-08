@@ -1,8 +1,7 @@
 #encoding: utf-8
 class PostsController < ApplicationController
-	before_filter :signed_in_user, only: [:create, :favorite]
-	# before_filter :signed_in_user, only: [ :create, :destroy ]
-	# before_filter :correct_user, only: :destroy
+	before_filter :signed_in_user, only: [ :create, :destroy, :favorite ]
+	before_filter :correct_user, only: :destroy
 
 	# 全文搜索
 	# def index
@@ -96,15 +95,15 @@ class PostsController < ApplicationController
     redirect_to post_path(params[:id])
   end
 
-	# def destroy
-	# 	@post.destroy
-	# 	redirect_to root_path
-	# end
+	def destroy
+		@post.destroy
+		redirect_to root_path
+	end
 
-	# private 
-	# 	def correct_user
-	# 		@post = current_user.posts.find_by(id: params[:id])
-	# 		redirect_to root_path if @post.nil?
-	# 	end
+	private 
+		def correct_user
+			@post = current_user.posts.find(params[:id])
+			redirect_to root_path if @post.nil?
+		end
 
 end

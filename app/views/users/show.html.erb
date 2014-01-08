@@ -1,3 +1,4 @@
+<!-- 用户资料显示 -->
 <div class="show_user">
 	<div class="user_info_main">
 		第<%= @user.id %>号会员  <br/>
@@ -54,6 +55,16 @@
 	</div>
 
 	<div class="class"></div>
-
+</div>
+<!-- 显示该用户发布的文章 -->
+<div>
+	<h3>我发表的文章</h3>
+	<% @posts.each do |post| %>
+		<%= link_to post.title, post_path(post) %>
+		<!-- 删除链接 -->
+		<% if current_user?(post.user) %>
+			<%= link_to "删除", post, method: :delete, data: { confirm: "确定要删除吗?" } %>  <br/>
+		<% end %>
+	<% end %>
 </div>
 

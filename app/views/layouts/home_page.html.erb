@@ -42,9 +42,8 @@
 
                 <fieldset class="subchck">
                     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-                    <%= label_tag :remember_me, "记住我" %>
-                    <span class="reminder" id="remember">记住我</span>
-                    <%= link_to "忘记密码？", "#", class: "reminder" %>
+                    <%= label_tag :remember_me, "记住我" %> <br/>
+                    <%= link_to "忘记密码？", "#", class: "reminder" %> 
                     <%= submit_tag "登录", class: "btn btn-large btn-primary" %> </br>
                     <%= link_to "github登录", "/auth/github" %> </br>
                     <%= link_to "qq登录", "/users/qqlogin" %> </br>

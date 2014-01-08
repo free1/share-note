@@ -25,6 +25,14 @@
 				<div>
 					<%= topic_function_tag(@post, 'zan_topic_ids', '赞', '已赞') %>
 				</div>
+				<!-- 删除功能(只有发表文章本人可见) -->
+					<% if current_user?(@post.user) %>
+					<%= link_to "删除", @post, method: :delete,
+	                                     data: { confirm: "确定要删除吗?" },
+	                                     title: @post.content %>
+	        <% end %>
+				<div>
+				</div>
 			</div>
 		</div>
 	</div>
