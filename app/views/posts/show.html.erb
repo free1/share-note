@@ -37,7 +37,7 @@
 	<!-- 文章所有评论 -->
 	<div class="comment">
 		<% if @comments.empty? %>
-			<h3>好没有回复哦</h3>
+			<h3>还没有回复哦</h3>
 		<% else %>
 			<div class="comment_number">
 				共收到 <%= @comments.count %> 条回复
@@ -57,9 +57,9 @@
 	<div class="reply_post">
 		<div class="reply_main">
 			<% if signed_in? %>
-				<div>添加回复</div>
 				<%= form_for([@post, @comment]) do |f| %>
 
+					<%= f.label :body, "添加回复" %>
 					<%= f.text_area :body, class: "textarea" %> </br>
 
 					<%= f.submit "回复", class: "btn btn-large btn-primary" %>
