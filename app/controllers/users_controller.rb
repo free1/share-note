@@ -105,11 +105,12 @@ class UsersController < ApplicationController
       current_user.qiandaos.create(qiandao_day_count: qiandao_day_count, qiandao_day_time: now_time)
     elsif continuous_day == 0
       # 连续点击签到无效
-      flash.now[:error] = "今天已经签到了哦!"
+      # flash[:error] = "今天已经签到了哦!"
     else
       # 没有连续签到或首次签到
       current_user.qiandaos.create(qiandao_day_count: 1, qiandao_day_time: now_time)
     end
+    redirect_to qiandao_user_path(current_user)
   end
 
   private
