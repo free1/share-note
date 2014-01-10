@@ -25,8 +25,8 @@
 				<div>
 					<%= topic_function_tag(@post, 'zan_topic_ids', '赞', '已赞') %>
 				</div>
-				<!-- 删除功能(只有发表文章本人可见) -->
-					<% if current_user?(@post.user) %>
+				<!-- 删除功能(只有发表文章本人和管理员可见) -->
+					<% if current_user?(@post.user) || current_user.admin? %>
 					<%= link_to "删除", @post, method: :delete,
 	                                     data: { confirm: "确定要删除吗?" },
 	                                     title: @post.content %>
@@ -55,7 +55,7 @@
 				<div class="comment_content">
 					<div class="comment_commenter"><%= comment.commenter %></div>
 					<%= wrap(markdown(comment.body)) %> 
-					<% if current_user?(comment.user) %>
+					<% if current_user?(comment.user) || current_user.admin? %>
 						<%= link_to "编辑", edit_post_comment_path(@post, comment) %>
 					<% end %>
 				</div>

@@ -7,6 +7,9 @@
 				<%= user.avatar? ? link_to(image_tag(user.avatar_url(:small)), user) : link_to(image_tag("uu.jpg", :height => '100', :width => '100'), user) %>
 				<%= link_to user.name, user %>
 				<!-- <p>加入时间: <%= user.created_at.strftime('%F') %></p> -->
+				<% if current_user.admin? && !current_user?(user) %>
+    			<%= link_to "删除", user, method: :delete, data: { confirm: "删除此用户?" } %>
+        <% end %>
 			</li>
 		<% end %>
 	</ol>

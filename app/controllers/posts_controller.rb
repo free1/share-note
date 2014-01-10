@@ -102,7 +102,7 @@ class PostsController < ApplicationController
 
 	private 
 		def correct_user
-			@post = current_user.posts.find(params[:id])
+			@post = Post.find(params[:id])
 			redirect_to root_path if @post.nil?
 		end
 

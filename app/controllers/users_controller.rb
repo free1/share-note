@@ -1,8 +1,9 @@
 #encoding: utf-8
 class UsersController < ApplicationController
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :correct_user, only: [ :edit, :update ]
   before_filter :signed_in_user,
-                only: [ :edit, :update, :destroy, :following, :followers, :favorite ]
+                only: [ :index, :edit, :update, :destroy, :following, :followers, :favorite ]
+  before_filter :admin, only: :destroy
 
   def index
     @users = User.page(params[:page])
@@ -118,5 +119,9 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
+    end
+
+    def admin
+      redirect_to(root_path) unless current_user.admin?
     end
 end
