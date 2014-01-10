@@ -1,0 +1,24 @@
+<div id="page_main">
+  <div class="post_main">
+    <div class="post_title">
+      <%= form_for(@post) do |f| %>
+        
+        <%= f.label :title, "主题" %>
+        <%= f.text_field :title, class: "input-xxlarge" %>
+
+        <%= f.label :content, "内容" %>
+        <%= f.text_area :content, class: "textarea" %>
+
+        <%= f.select(:kind, [['笔记', 'node'], ['博客', 'blog'], ['随笔', 'suibi'], ['日志', 'log'],
+                     ['新闻', 'news'], ['ACM', 'acm'], ['活动', 'activity'], ['工具', 'tool']]) %>
+
+        <br/>
+        <%= f.submit "保存修改", class: "btn btn-large btn-primary location" %>
+
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/tips' %>
+  <!-- 清除浮动 -->
+  <div class="class"></div>
+</div>

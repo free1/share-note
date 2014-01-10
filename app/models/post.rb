@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 	# searchable do 
 	# 	text :title, :content
 	# 	text :comments do
-	# 		comments.map { |comment| comment.body  }
+	# 		comments.map { |comment| comment.body }
 	# 	end
 	# end
 

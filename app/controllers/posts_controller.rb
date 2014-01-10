@@ -41,6 +41,19 @@ class PostsController < ApplicationController
 		end
 	end
 
+  def edit
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def update
+    @post = current_user.posts.find(params[:id])
+    if @post.update_attributes(params[:post])
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
 	# 文章种类的确定
 	def post_kind
 		@post = current_user.posts.build
