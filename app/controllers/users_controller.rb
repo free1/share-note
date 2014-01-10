@@ -23,10 +23,10 @@ class UsersController < ApplicationController
       sign_in @user
       # 注册邮件提醒
       SignupMailer.send_signup_mailer(@user).deliver
-      flash[:success] = "恭喜你注册帐号成功！"
+      flash[:success] = "Welcome #{@user.name}"
   		redirect_to root_path
   	else
-  		render 'new'	
+  		render 'new'
   	end
   end
 

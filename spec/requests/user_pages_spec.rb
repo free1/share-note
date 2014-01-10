@@ -40,7 +40,7 @@ describe "用户系统功能" do
         describe "点击创建按钮" do
           before { click_button submit }
 
-          it { should have_selector('div.alert.alert-success', text: '恭喜你注册帐号成功！') }
+          it { should have_selector('div.alert.alert-success', text: 'Welcome') }
         end
       end
     end
