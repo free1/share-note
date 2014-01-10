@@ -1,0 +1,10 @@
+<%= form_for([@post, @comment]) do |f| %>
+
+  <%= f.label :body, "修改回复" %>
+  <%= f.text_area :body %> </br>
+
+  <%= f.submit "保存", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<%= link_to "删除", post_comment_path(@post, @comment), 
+                  method: :delete, data: { confirm: "确定要删除吗?" } %>

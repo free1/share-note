@@ -55,6 +55,9 @@
 				<div class="comment_content">
 					<div class="comment_commenter"><%= comment.commenter %></div>
 					<%= wrap(markdown(comment.body)) %> 
+					<% if current_user?(comment.user) %>
+						<%= link_to "编辑", edit_post_comment_path(@post, comment) %>
+					<% end %>
 				</div>
 				<div class="line"></div>
 			<% end %>
@@ -73,7 +76,7 @@
 					<%= f.submit "回复", class: "btn btn-large btn-primary" %>
 					<p>请尽量让自己的回复能够对别人有帮助</p>
 				<% end %>
-				<% else %>
+			<% else %>
 				需要 <%= link_to "登陆", signin_path %> 后回复方可回复, 
 				如果你还没有账号你可以 <%= link_to "注册", signup_path %> 一个帐号。
 			<% end %>

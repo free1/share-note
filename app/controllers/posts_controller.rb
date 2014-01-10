@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 		# 给文章打上标签方便检索
 		@post = current_user.posts.build(title: params[:post][:title], content: params[:post][:content], kind: session[:kind])
 		if @post.save
-		    redirect_to post_path(@post)
+		  redirect_to post_path(@post)
 		else
 			# 如果文章没有保存成功则删除session
 			session[:kind] = nil

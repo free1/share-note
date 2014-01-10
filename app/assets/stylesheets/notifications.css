@@ -20,7 +20,7 @@
 .unread {
 	background-color: #e55753;
 }
-.hightlight {
+.hightlight a {
 	color: red;
 }
 

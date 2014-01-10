@@ -30,8 +30,8 @@ class Comment < ActiveRecord::Base
           end
           notification_users_id
       end
-      # 将发表文章的人加进来
-      notification_users_id << self.post.user.id 
+      # 当回复的评论不是发表文章的用户时，将发表文章的人加进来
+      notification_users_id << self.post.user.id unless self.commenter == self.post.user.name
       # 去掉重复的人
       notification_users_id.uniq
     end

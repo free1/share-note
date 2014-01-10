@@ -2,5 +2,6 @@
 <% if not comment.nil? %>
 	<div class=<%= "hightlight" if notification.unread %>>
 		<%= render comment %>
+    <%= link_to "删除", notification, method: :delete, data: { confirm: "确定要删除吗?" } %>
 	</div>
 <% end %>
