@@ -49,9 +49,22 @@
 	</div>
 
 	<div class="follow_button">
+		<!-- 显示是否是管理员 -->
+		<% if @user.admin? %>
+			管理员
+		<% end %>
+		<!-- 超级管理员可以设置其他用户为管理员 -->
+		<!-- 当前用户是否为超级管理员，选择用户是管理员，不能取消超级管理员 -->
+		<% if current_user?(@super_admin) && @user.admin? && !current_user?(@user) %>
+			<%= link_to "取消管理员", set_admin_user_path(@user) %>
+		<% end %>
+		<!-- 当前用户是否为超级管理员，选择用户不是管理员 -->
+		<% if current_user?(@super_admin) && !@user.admin? %>
+			<%= link_to "设为管理员", set_admin_user_path(@user) %>
+		<% end %>
 		<!-- 显示用户上传头像，否则显示默认头像 -->
 		<%= @user.avatar? ? image_tag(@user.avatar_url(:thumb)) : image_tag("uu.jpg", :height => '100', :width => '100') %>
-	    <%= render 'follow_form' if signed_in? %>
+	  <%= render 'follow_form' if signed_in? %>
 	</div>
 
 	<div class="class"></div>

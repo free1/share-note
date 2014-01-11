@@ -48,6 +48,10 @@ Node::Application.routes.draw do
   # 站内通知
   resources :notifications 
 
+  # 管理员功能
+  # namespace :admins do
+  # end 
+
   # 用户系统
   resources :users do
 
@@ -59,6 +63,8 @@ Node::Application.routes.draw do
       # 签到
       get :qiandao
       get :qiandao_execute
+      # 设置管理员
+      get :set_admin
     end
 
     collection do

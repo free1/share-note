@@ -7,10 +7,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.page(params[:page])
+    @super_admin = User.find(1)
   end
 
   def show
     @user = User.find(params[:id])
+    @super_admin = User.find(1)
     @posts = @user.posts.paginate(page: params[:page])
   end
 
@@ -112,6 +114,18 @@ class UsersController < ApplicationController
       current_user.qiandaos.create(qiandao_day_count: 1, qiandao_day_time: now_time)
     end
     redirect_to qiandao_user_path(current_user)
+  end
+
+
+  # 超级管理员设置管理员
+  def set_admin
+    user = User.find(params[:id])
+    if user.toggle!(:admin)
+      redirect_to user
+    else
+      flash[:error] = "设置失败！"
+      redirect_to root_path
+    end
   end
 
   private
