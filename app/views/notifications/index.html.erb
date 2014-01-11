@@ -1,8 +1,17 @@
 <div class="notification_main">
 	<h3>新的通知提醒（<%= @unread_count %> 条）</h3>
 	<!-- 文章回复 -->
-	<span>收到的提醒</span>
+	<h4>回复提醒</h4>
 	<% @notifications.each do |notification| %>
     <%= render notification %>
+  <% end %>
+  <h4>关注提醒</h4>
+  <% @notifications.each do |notification| %>
+    <% if notification.comment_id.nil? %>
+      <div class=<%= "hightlight" if notification.unread %>>
+        用户 <%= find_follow_user(notification.user_id) %> 关注了你哦！
+        <%= link_to "删除", notification, method: :delete, data: { confirm: "确定要删除吗?" } %>
+      </div>
+    <% end %>
   <% end %>
 </div>

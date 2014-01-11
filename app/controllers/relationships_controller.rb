@@ -10,6 +10,8 @@ class RelationshipsController < ApplicationController
 			format.html { redirect_to @user }
 			format.js
 		end
+		# 创建关注提醒
+		@user.notifications.create(unread: true)
 	end
 
 	# 取消关注关系
@@ -20,6 +22,8 @@ class RelationshipsController < ApplicationController
 			format.html { redirect_to @user }
 			format.js
 		end
+		# 取消关注删除关注提醒
+		Notification.where(user_id: @user.id).delete_all
 	end
 
 end
