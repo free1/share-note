@@ -2,6 +2,7 @@
 class RelationshipsController < ApplicationController
 	before_filter :signed_in_user
 
+	# 创建关注关系
 	def create
 		@user = User.find(params[:relationship][:followed_id])
 		current_user.follow!(@user)
@@ -11,6 +12,7 @@ class RelationshipsController < ApplicationController
 		end
 	end
 
+	# 取消关注关系
 	def destroy
 		@user = Relationship.find(params[:id]).followed
 		current_user.unfollow!(@user)

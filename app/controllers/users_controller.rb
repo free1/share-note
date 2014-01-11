@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  # 关注
+  # 显示关注
   def following
     @title = "关注"
     @user = User.find(params[:id])
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  # 粉丝
+  # 显示粉丝
   def followers
     @title = "粉丝"
     @user = User.find(params[:id])
