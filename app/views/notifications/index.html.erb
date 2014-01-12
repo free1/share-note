@@ -9,7 +9,7 @@
   <% @notifications.each do |notification| %>
     <% if notification.comment_id.nil? %>
       <div class=<%= "hightlight" if notification.unread %>>
-        用户 <%= find_follow_user(notification.user_id) %> 关注了你哦！
+        用户 <%= find_follow_user(notification.follow_notification_id) %> 关注了你哦！
         <%= link_to "删除", notification, method: :delete, data: { confirm: "确定要删除吗?" } %>
       </div>
     <% end %>

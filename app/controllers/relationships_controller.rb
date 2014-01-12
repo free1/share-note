@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
 			format.js
 		end
 		# 创建关注提醒
-		@user.notifications.create(unread: true)
+		@user.notifications.create(unread: true, follow_notification_id: current_user.id)
 	end
 
 	# 取消关注关系

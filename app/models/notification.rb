@@ -1,5 +1,5 @@
 class Notification < ActiveRecord::Base
-  attr_accessible :comment_id, :unread, :user_id
+  attr_accessible :comment_id, :unread, :user_id, :follow_notification_id
 
   belongs_to :user
   belongs_to :comment
