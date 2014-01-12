@@ -21,6 +21,10 @@
           <!-- 用户是否登录 -->
           <% if signed_in? %>
             <li><%= link_to "用户", users_path %></li>
+            <!-- 管理员列表显示 -->
+            <% if current_user.admin? %>
+              <li><%= link_to "管理员", admins_users_path %></li>
+            <% end %>
             <!-- 站内通知 -->
             <li><%= link_to "#{@unread_count}", notifications_path, :class => "notification_indicator #{'unread' if @unread_count != 0} " %></li>
             <!-- 用户资料设置 -->

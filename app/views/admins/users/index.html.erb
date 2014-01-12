@@ -1,0 +1,14 @@
+<div class="index_users">
+  <h4>目前有 <%= @admins.count %> 位会员是管理员</h4>
+  <ol class="follow-list">
+    <% @admins.each do |admin| %>
+      <li class="follow-list-item">
+        <!-- 显示用户上传头像，否则显示默认头像 -->
+        <%= admin.avatar? ? link_to(image_tag(admin.avatar_url(:small)), admin) : link_to(image_tag("uu.jpg", :height => '100', :width => '100'), admin) %>
+        <%= link_to admin.name, admin %> <br/>
+        <p>加入时间: <%= admin.created_at.strftime('%F') %></p>
+      </li>
+    <% end %>
+  </ol>
+  <div class="class"></div>
+</div>

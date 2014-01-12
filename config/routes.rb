@@ -49,8 +49,9 @@ Node::Application.routes.draw do
   resources :notifications 
 
   # 管理员功能
-  # namespace :admins do
-  # end 
+  namespace :admins do
+    resources :users
+  end 
 
   # 用户系统
   resources :users do
