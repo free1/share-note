@@ -64,6 +64,7 @@
 		<% end %>
 		<!-- 显示用户上传头像，否则显示默认头像 -->
 		<%= @user.avatar? ? image_tag(@user.avatar_url(:thumb)) : image_tag("uu.jpg", :height => '100', :width => '100') %>
+		<!-- 显示关注数量列表 -->
 	  <%= render 'follow_form' if signed_in? %>
 	</div>
 

@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 		else
 			# 如果文章没有保存成功则删除session
 			session[:kind] = nil
-			flash.now[:error] = "文章标题和内容都不可以为空哦！"
+			flash.now[:error] = "文章不符合标准哦！"
 			render 'post_kind'
 		end
 	end

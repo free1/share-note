@@ -16,10 +16,19 @@
 	<% @posts.each do |post| %>
 		<li>
 			<div class="one_post">
+				<!-- 用户头像 -->
+				<div class="user_avatar">
+					<%= post.user.avatar? ? image_tag(post.user.avatar_url(:small)) : image_tag("uu.jpg", :height => '80', :width => '80') %>
+				</div>
+				<!-- 文章内容 -->
 				<%= link_to post do %>
-					<p class="title"><%= post.title %></p>
-					<div class="line"></div>
-					<p class="content"><%= truncate(strip_tags(post.content), length: 100) %></p>
+					<b>——</b>
+					<p class="title">
+						<%= truncate(strip_tags(post.title), length: 20) %>
+					</p>
+					<div class="content">
+						<%= truncate(strip_tags(post.content), length: 100) %>
+					</div>
 					<p class="timestamp">
 						<%= time_ago_in_words(post.created_at) %> ago.
 					</p>

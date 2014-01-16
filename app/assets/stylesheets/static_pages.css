@@ -2,22 +2,22 @@
 .menu {
 	padding: 15px 10px;
 	border-radius: 5px;
-	background-color: #cfa972;
+	background-color: #e5e5e5;
 }
 .menu ul li {
     margin-left: 40px;
 }
 .menu ul li a {
-	color: white;
+	color: rgb(46, 160, 203);
 	padding: 10px;
 	font-size: 17px;
 	font-weight: bold;
 	text-decoration: none;
-	background-color: #cfa972;
+	background-color: #e5e5e5;
 	border-radius: 7px;
 }
 .menu ul li a:hover {
-	color: #cfa972;
+	color: black;
 	background-color: white;
 }
 

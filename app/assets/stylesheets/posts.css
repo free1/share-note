@@ -6,29 +6,54 @@
 }
 .posts .one_post {
 	background-color: white;
-	width: 258px;
-	height: 300px;
+	width: 410px;
+	height: 200px;
+	border-top: 2px solid #999;
+	border-bottom: 2px solid #999;
 	margin-right: 27px;
 	margin-top: 30px;
 	padding: 10px;
-	border-radius: 6px;
 	float: left;
+	border-radius: 5px;
+	position: relative;
 	/*cursor: pointer;*/
 }
 .one_post a {
+	width: 420px;
+	height: 210px;
 	color: black;
 	display: block;
 	text-decoration: none;
 }
+.one_post .user_avatar {
+	float: left;
+}
+.one_post b {
+	margin-left: 8px;
+	color: rgb(170, 170, 170);
+	line-height: 50px;
+	float: left;
+	margin-right: 10px;
+}
 .one_post .title {
-	font-size: 20px;
-    font-weight: bold;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 23px;
+	line-height: 25px;
+	letter-spacing: 2px;
+	color: rgb(28, 148, 196);
+	font-family: '幼圆';
+	text-shadow: 0px 1px 0px rgb(255, 255, 255);
 }
 .one_post .content {
 	margin-top: 6px;
 	font-size: 15px;
+	padding-right: 20px;
 	/*对多余的内容裁减*/
 	overflow-x: hidden;
+	position: absolute;
+	left: 40px;
+	top: 85px;
 }
 .one_post .content a {
 	display: inline-block;
@@ -38,9 +63,8 @@
 .timestamp {
     color:  #c3cad8;
     font-size: 11px;
-    margin-top: 230px;
-	/*position: absolute;
-	top: 300px;*/
+    position: absolute;
+    top: 190px;
 }
 
 
@@ -58,6 +82,13 @@
 	background-color: white;
 	border-radius: 6px;
 }
+.post_top h2 {
+	float: left;
+	width: 570px;
+}
+.post_top span {
+	float: right;
+}
 .post_main .post_totle_font {
 	margin-bottom: 6px;
 	color: #dddddd;
@@ -65,7 +96,14 @@
 .post_main .post_content {
 	margin-top: 10px;
 }
-
+.post_shop {
+	float: right;
+/*	position: relative;
+	left: 80%;*/
+}
+.post_shop a {
+	color: #26709A;
+}
 
 /* 编辑post */
 

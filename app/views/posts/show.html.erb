@@ -1,8 +1,16 @@
 <div id="page_main">
 	<div class="post_main">
-		<div class="post_title">
-			<!-- 文章信息 -->
-			<h2><%= @post.title %></h2>
+		<div class="post_title clearfix">
+			<div class="post_top">
+				<!-- 文章标题 -->
+				<h2><%= @post.title %></h2>
+				<!-- 显示用户上传头像，否则显示默认头像 -->
+				<span class="user_avatar">
+					<%= @post.user.avatar? ? image_tag(@user.avatar_url(:thumb)) : image_tag("uu.jpg", :height => '100', :width => '100') %>
+				</span>
+				<!-- 清除浮动 -->
+				<div class="class"></div>
+			</div>
 			<div class="post_totle_font">
 				<%= @post.user.name %> • 于 
 				<%= time_ago_in_words(@post.created_at) %> 发布
@@ -11,30 +19,31 @@
 			 		<%= @comments.last.commenter %>  于 
 			 		<%= time_ago_in_words(@comments.last.created_at) %> 回复
 			 	<% end %>
-			 	    • <%= @post.viewed_count %> 次阅读
+			 	  • <%= @post.viewed_count %> 次阅读
 			</div>
 			<div class="line"></div>
 			<!-- 文章内容 -->
 			<div class="post_content">
 				<%= wrap(markdown(@post.content)) %>
-				<!-- 收藏文章功能 -->
-				<div>
-					<%= topic_function_tag(@post, 'favorite_topic_ids', '收藏', '取消收藏') %>
-				</div>
-				<!-- 赞功能 -->
-				<div>
-					<%= topic_function_tag(@post, 'zan_topic_ids', '赞', '已赞') %>
-				</div>
-				<!-- 删除编辑功能(只有发表文章本人和管理员可见) -->
-					<% if current_user?(@post.user) || current_user.admin? %>
-					<%= link_to "编辑", edit_post_path(@post) %>
-					<%= link_to "删除", @post, method: :delete,
-	                                     data: { confirm: "确定要删除吗?" },
-	                                     title: @post.content %>
-	        <% end %>
-				<div>
-				</div>
 			</div>
+			<!-- 文章功能栏 -->
+			<div class="post_shop">
+				<!-- 赞功能 -->
+				<span>
+					<%= topic_function_tag(@post, 'zan_topic_ids', '赞', '已赞') %>
+				</span>
+				<!-- 收藏文章功能 -->
+				<span>
+					<%= topic_function_tag(@post, 'favorite_topic_ids', '收藏', '取消收藏') %>
+				</span>
+				<!-- 删除编辑功能(只有发表文章本人和管理员可见) -->
+				<% if current_user?(@post.user) || current_user.admin? %>
+				<%= link_to "编辑", edit_post_path(@post) %>
+				<%= link_to "删除", @post, method: :delete,
+                                     data: { confirm: "确定要删除吗?" },
+                                     title: @post.content %>
+        <% end %>
+     	</div>
 		</div>
 	</div>
 
@@ -56,9 +65,11 @@
 				<div class="comment_content">
 					<div class="comment_commenter"><%= comment.commenter %></div>
 					<%= wrap(markdown(comment.body)) %> 
-					<% if current_user?(comment.user) || current_user.admin? %>
-						<%= link_to "编辑", edit_post_comment_path(@post, comment) %>
-					<% end %>
+					<div class="comment_shop">
+						<% if current_user?(comment.user) || current_user.admin? %>
+							<%= link_to "编辑", edit_post_comment_path(@post, comment) %>
+						<% end %>
+					</div>
 				</div>
 				<div class="line"></div>
 			<% end %>
